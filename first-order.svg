@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 640" width="1024" height="640">
+  <defs>
+    <!-- Soft shadow for the card -->
+    <filter id="card-shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#000000" flood-opacity="0.08"/>
+    </filter>
+
+    <!-- Gradient fill under the sales graph line -->
+    <linearGradient id="chart-fill-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0080ff" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#0080ff" stop-opacity="0.00"/>
+    </linearGradient>
+
+    <!-- Blue line gradient -->
+    <linearGradient id="line-grad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0070e0"/>
+      <stop offset="100%" stop-color="#0099ff"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    .card-bg { fill: #ffffff; rx: 24px; }
+    .btn-pill { fill: #f1f2f4; rx: 14px; }
+    .btn-text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 28px; font-weight: 500; fill: #202223; }
+    .metric-lbl { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 26px; font-weight: 500; fill: #6d7175; }
+    .metric-val { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 54px; font-weight: 700; fill: #202223; }
+    .metric-growth { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 30px; font-weight: 600; fill: #1c7343; }
+    .grid-text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 24px; font-weight: 500; fill: #6d7175; }
+    .grid-line { stroke: #e5e7eb; stroke-width: 1.5; }
+  </style>
+
+  <!-- Main Card Container -->
+  <rect x="0" y="0" width="1024" height="640" rx="24" fill="#ffffff" filter="url(#card-shadow)"/>
+
+  <!-- Top Controls Row -->
+  <!-- "Today v" dropdown pill -->
+  <rect x="44" y="44" width="168" height="68" rx="16" fill="#f1f2f4"/>
+  <text x="74" y="89" class="btn-text">Today</text>
+  <path d="M164 80 L174 90 L184 80" fill="none" stroke="#202223" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- "• 2 visitors" live pill -->
+  <rect x="232" y="44" width="190" height="68" rx="16" fill="#f1f2f4"/>
+  <circle cx="260" cy="78" r="7" fill="#108043"/>
+  <text x="282" y="89" class="btn-text" fill="#202223">2 visitors</text>
+
+  <!-- "Report" button on right -->
+  <rect x="796" y="44" width="184" height="68" rx="16" fill="#ffffff" stroke="#d2d5d8" stroke-width="2"/>
+  <!-- Report Icon -->
+  <g transform="translate(820, 62)">
+    <rect x="0" y="0" width="22" height="28" rx="4" fill="none" stroke="#202223" stroke-width="2.5"/>
+    <line x1="5" y1="8" x2="17" y2="8" stroke="#202223" stroke-width="2" stroke-linecap="round"/>
+    <line x1="5" y1="14" x2="17" y2="14" stroke="#202223" stroke-width="2" stroke-linecap="round"/>
+    <line x1="5" y1="20" x2="12" y2="20" stroke="#202223" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="22" cy="24" r="5" fill="#ffffff" stroke="#202223" stroke-width="2.2"/>
+    <line x1="26" y1="28" x2="31" y2="33" stroke="#202223" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+  <text x="862" y="89" class="btn-text">Report</text>
+
+  <!-- Metric 1: Sessions -->
+  <text x="44" y="174" class="metric-lbl">Sessions</text>
+  <text x="44" y="238" class="metric-val">38</text>
+  <text x="44" y="284" class="metric-growth">↗ 9%</text>
+
+  <!-- Metric 2: Total sales -->
+  <text x="424" y="174" class="metric-lbl">Total sales</text>
+  <text x="424" y="238" class="metric-val">$44.99</text>
+
+  <!-- Metric 3: Orders -->
+  <text x="796" y="174" class="metric-lbl">Orders</text>
+  <text x="796" y="238" class="metric-val">1</text>
+
+  <!-- Chart Area -->
+  <!-- Top Grid line: 20 -->
+  <text x="44" y="388" class="grid-text">20</text>
+  <line x1="90" y1="380" x2="980" y2="380" class="grid-line"/>
+
+  <!-- Bottom Grid line: 0 -->
+  <text x="56" y="528" class="grid-text">0</text>
+  <line x1="90" y1="520" x2="980" y2="520" class="grid-line"/>
+
+  <!-- Dotted Comparison Curve (Prior Period) -->
+  <path d="M 90 515
+           C 160 515, 220 510, 290 495
+           C 360 480, 420 500, 490 485
+           C 560 470, 620 440, 690 455
+           C 740 465, 780 395, 825 365
+           C 870 335, 910 490, 980 505"
+        fill="none" stroke="#9bb8d3" stroke-width="3" stroke-dasharray="6, 6"/>
+
+  <!-- Shaded Area Under Current Period Curve -->
+  <path d="M 90 518
+           C 160 518, 240 516, 320 514
+           C 400 512, 470 508, 540 498
+           C 600 490, 660 480, 710 460
+           C 760 440, 790 350, 835 340
+           C 875 330, 920 460, 980 512
+           L 980 520 L 90 520 Z"
+        fill="url(#chart-fill-grad)"/>
+
+  <!-- Solid Vibrant Blue Curve (Today) -->
+  <path d="M 90 518
+           C 160 518, 240 516, 320 514
+           C 400 512, 470 508, 540 498
+           C 600 490, 660 480, 710 460
+           C 760 440, 790 350, 835 340
+           C 875 330, 920 460, 980 512"
+        fill="none" stroke="url(#line-grad)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- High point indicator dot on the winning first order peak -->
+  <circle cx="835" cy="340" r="6" fill="#0080ff" stroke="#ffffff" stroke-width="2.5"/>
+
+  <!-- Time Labels along bottom X-axis -->
+  <text x="90" y="582" class="grid-text">12:00 AM</text>
+  <text x="500" y="582" class="grid-text" text-anchor="middle">10:00 AM</text>
+  <text x="890" y="582" class="grid-text" text-anchor="end">8:00 PM</text>
+</svg>

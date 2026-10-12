@@ -351,21 +351,38 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 7. Lead Capture Modal (Page 2) & Value Stack Modal (Page 3)
+    // 7. Lead Capture Modal (Page 2), Value Stack Modal (Page 3) & Review Modal
     const leadModal = document.getElementById('lead-capture-modal');
     const valueModal = document.getElementById('value-stack-modal');
+    const reviewModal = document.getElementById('review-submission-modal');
+    const lightboxModal = document.getElementById('image-lightbox-modal');
     const closeBtns = document.querySelectorAll('.modal-close-btn');
 
     function openLeadModal() {
         if (leadModal) leadModal.classList.add('active');
     }
 
+    function openReviewModal() {
+        if (reviewModal) reviewModal.classList.add('active');
+    }
+
     function closeAllModals() {
         if (leadModal) leadModal.classList.remove('active');
         if (valueModal) valueModal.classList.remove('active');
+        if (reviewModal) reviewModal.classList.remove('active');
+        if (lightboxModal) lightboxModal.classList.remove('active');
     }
 
     closeBtns.forEach(btn => btn.addEventListener('click', closeAllModals));
+
+    // Bind review buttons
+    document.querySelectorAll('.trigger-review-modal').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            openReviewModal();
+        });
+    });
 
     function bindModalTriggers() {
         document.querySelectorAll('button, a').forEach(el => {
@@ -565,4 +582,271 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // 10. Star Rating Picker in Review Modal
+    let selectedRating = 5;
+    const starPicker = document.getElementById('star-rating-select');
+    const ratingFeedback = document.getElementById('rating-text-feedback');
+    const stars = starPicker ? starPicker.querySelectorAll('.star-pick') : [];
+    
+    const ratingTexts = {
+        1: "1.0 / 5.0 — Poor Experience",
+        2: "2.0 / 5.0 — Fair",
+        3: "3.0 / 5.0 — Good",
+        4: "4.0 / 5.0 — Very Good",
+        5: "5.0 / 5.0 — Outstanding Experience"
+    };
+
+    function updateStarsDisplay(rating) {
+        stars.forEach(s => {
+            const val = parseInt(s.dataset.val, 10);
+            if (val <= rating) {
+                s.classList.add('active');
+            } else {
+                s.classList.remove('active');
+            }
+        });
+        if (ratingFeedback) {
+            ratingFeedback.textContent = ratingTexts[rating] || `${rating}.0 / 5.0`;
+        }
+    }
+
+    stars.forEach(star => {
+        star.addEventListener('mouseenter', () => {
+            const val = parseInt(star.dataset.val, 10);
+            stars.forEach(s => {
+                const sVal = parseInt(s.dataset.val, 10);
+                if (sVal <= val) {
+                    s.classList.add('hovered');
+                } else {
+                    s.classList.remove('hovered');
+                }
+            });
+            if (ratingFeedback) {
+                ratingFeedback.textContent = ratingTexts[val] || `${val}.0 / 5.0`;
+            }
+        });
+
+        star.addEventListener('mouseleave', () => {
+            stars.forEach(s => s.classList.remove('hovered'));
+            updateStarsDisplay(selectedRating);
+        });
+
+        star.addEventListener('click', () => {
+            selectedRating = parseInt(star.dataset.val, 10);
+            if (starPicker) starPicker.dataset.rating = selectedRating;
+            updateStarsDisplay(selectedRating);
+        });
+    });
+
+    // 11. Proof Screenshot Upload Preview in Review Modal
+    const fileUploadBox = document.getElementById('file-upload-box');
+    const fileInput = document.getElementById('review-image-input');
+    const uploadPrompt = document.getElementById('upload-prompt');
+    const previewWrapper = document.getElementById('image-preview-wrapper');
+    const previewImg = document.getElementById('review-preview-img');
+    const btnRemovePreview = document.getElementById('btn-remove-preview');
+    let uploadedImageDataUrl = '';
+
+    if (fileUploadBox && fileInput) {
+        fileUploadBox.addEventListener('click', (e) => {
+            if (e.target !== btnRemovePreview && !btnRemovePreview?.contains(e.target)) {
+                fileInput.click();
+            }
+        });
+
+        fileInput.addEventListener('change', () => {
+            const file = fileInput.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    uploadedImageDataUrl = e.target.result;
+                    if (previewImg) previewImg.src = uploadedImageDataUrl;
+                    if (uploadPrompt) uploadPrompt.style.display = 'none';
+                    if (previewWrapper) previewWrapper.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    }
+
+    if (btnRemovePreview) {
+        btnRemovePreview.addEventListener('click', (e) => {
+            e.stopPropagation();
+            uploadedImageDataUrl = '';
+            if (fileInput) fileInput.value = '';
+            if (previewImg) previewImg.src = '';
+            if (previewWrapper) previewWrapper.style.display = 'none';
+            if (uploadPrompt) uploadPrompt.style.display = 'flex';
+        });
+    }
+
+    // 12. Review Form Submission Logic
+    const reviewForm = document.getElementById('student-review-form');
+    const reviewSuccessBox = document.getElementById('review-form-success');
+    const btnReviewDone = document.getElementById('btn-review-done');
+
+    if (reviewForm) {
+        reviewForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const author = document.getElementById('review-author').value.trim();
+            const location = document.getElementById('review-location').value.trim() || 'Verified Student';
+            const headline = document.getElementById('review-headline').value.trim();
+            const story = document.getElementById('review-text').value.trim();
+            const errorEl = document.getElementById('review-form-error');
+
+            if (!author || !headline) {
+                if (errorEl) errorEl.style.display = 'block';
+                return;
+            }
+            if (errorEl) errorEl.style.display = 'none';
+
+            // Generate star rating string
+            const starString = '★'.repeat(selectedRating) + '☆'.repeat(5 - selectedRating);
+
+            // Construct new Review Card
+            const newCard = document.createElement('div');
+            newCard.className = 'exit-review-card fade-up visible';
+
+            let imageHtml = '';
+            if (uploadedImageDataUrl) {
+                imageHtml = `
+                    <div class="exit-proof-img-wrap" data-caption="${author} — Proof Screenshot">
+                        <img src="${uploadedImageDataUrl}" alt="${author} Proof" loading="lazy">
+                    </div>
+                `;
+            }
+
+            let storyHtml = '';
+            if (story) {
+                storyHtml = `
+                    <div class="exit-review-text-block">
+                        <p>${story}</p>
+                    </div>
+                `;
+            }
+
+            newCard.innerHTML = `
+                <div class="exit-stars-top">${starString}</div>
+                <div class="exit-reviewer-row">
+                    <div class="exit-avatar-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <circle cx="12" cy="8" r="4.2"></circle>
+                            <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"></path>
+                        </svg>
+                    </div>
+                    <div class="exit-reviewer-details">
+                        <div class="exit-reviewer-name">${author} <span style="font-size:0.8rem; font-weight:normal; color:var(--text-secondary);">&middot; ${location}</span></div>
+                        <div class="exit-reviewer-meta">
+                            <span class="exit-stars-mini">${starString}</span>
+                            <span class="exit-verified-tag">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                </svg>
+                                Verified Purchase
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="exit-review-quote">${headline}</div>
+                ${storyHtml}
+                ${imageHtml}
+            `;
+
+            // Insert at the top of the cards container
+            const cardsContainer = document.querySelector('.exit-frame-cards');
+            if (cardsContainer) {
+                cardsContainer.prepend(newCard);
+                // Bind lightbox to new image if present
+                bindLightboxToElements(newCard.querySelectorAll('.exit-proof-img-wrap'));
+            }
+
+            // Show success UI
+            reviewForm.style.display = 'none';
+            if (reviewSuccessBox) reviewSuccessBox.style.display = 'block';
+
+            // Auto-close after 2.2 seconds
+            setTimeout(() => {
+                closeAllModals();
+                // Reset form
+                reviewForm.reset();
+                reviewForm.style.display = 'block';
+                if (reviewSuccessBox) reviewSuccessBox.style.display = 'none';
+                if (btnRemovePreview) btnRemovePreview.click();
+                selectedRating = 5;
+                updateStarsDisplay(5);
+                newCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 2200);
+        });
+    }
+
+    if (btnReviewDone) {
+        btnReviewDone.addEventListener('click', () => {
+            closeAllModals();
+            if (reviewForm) {
+                reviewForm.reset();
+                reviewForm.style.display = 'block';
+            }
+            if (reviewSuccessBox) reviewSuccessBox.style.display = 'none';
+        });
+    }
+
+    // 13. Fullscreen Image Lightbox Modal Logic (Makes all images fully visible)
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const lightboxCloseBtn = document.getElementById('lightbox-close-btn');
+
+    function openLightbox(src, caption) {
+        if (!lightboxModal || !lightboxImg) return;
+        lightboxImg.src = src;
+        if (lightboxCaption) {
+            lightboxCaption.textContent = caption || 'Student Proof Screenshot';
+            lightboxCaption.style.display = caption ? 'block' : 'none';
+        }
+        lightboxModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        if (!lightboxModal) return;
+        lightboxModal.classList.remove('active');
+        document.body.style.overflow = '';
+        if (lightboxImg) lightboxImg.src = '';
+    }
+
+    if (lightboxCloseBtn) {
+        lightboxCloseBtn.addEventListener('click', closeLightbox);
+    }
+
+    if (lightboxModal) {
+        lightboxModal.addEventListener('click', (e) => {
+            if (e.target === lightboxModal) {
+                closeLightbox();
+            }
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeLightbox();
+            closeAllModals();
+        }
+    });
+
+    function bindLightboxToElements(elements) {
+        elements.forEach(wrap => {
+            wrap.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const img = wrap.querySelector('img');
+                if (img) {
+                    const src = img.currentSrc || img.src;
+                    const caption = wrap.dataset.caption || img.alt || 'Proof Screenshot';
+                    openLightbox(src, caption);
+                }
+            });
+        });
+    }
+
+    // Bind lightbox to all proof image wrappers and timeline placeholders
+    bindLightboxToElements(document.querySelectorAll('.exit-proof-img-wrap, .test-img-placeholder'));
 });
