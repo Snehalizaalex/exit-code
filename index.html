@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
     <title>The Exit — The 28 Days AI System To Make ₹1 Lakh/Month</title>
     <meta name="description" content="The step-by-step system to sell internationally — from anywhere in India.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="exit logo new oneee.png">
+    <link rel="icon" type="image/png" href="exit%20logo%20new%20oneee.png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,7 +19,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="logo">
-                <img src="exit logo new oneee.png" alt="The Exit Logo" class="nav-logo-img">
+                <img src="exit%20logo%20new%20oneee.png" alt="The Exit Logo" class="nav-logo-img">
                 <span class="logo-text">The Exit</span>
             </a>
             <div class="nav-right">
@@ -872,7 +872,7 @@
 
             <div style="text-align: center; margin-bottom: 1.25rem;">
                 <div style="font-family: var(--font-serif); font-size: 1.35rem; font-weight: 800; color: var(--accent-gold); display: inline-flex; align-items: center; justify-content: center; gap: 10px;">
-                    <img src="exit logo new oneee.png" alt="The Exit Logo" style="height: 38px; width: auto; object-fit: contain;">
+                    <img src="exit%20logo%20new%20oneee.png" alt="The Exit Logo" style="height: 38px; width: auto; object-fit: contain;">
                     <span>The Exit</span>
                 </div>
             </div>
@@ -902,9 +902,10 @@
                     <label class="form-label">Email Address</label>
                     <input type="email" id="lead-email" class="form-input" placeholder="your@email.com">
                 </div>
-                <div class="form-error" id="step1-error">Please fill in all fields to continue.</div>
-
-                <button class="btn btn-primary" id="btn-step1-next" style="width: 100%; margin-top: 1rem;">Continue &rarr;</button>
+                <div class="modal-sticky-footer">
+                    <div class="form-error" id="step1-error">Please fill in all fields to continue.</div>
+                    <button class="btn btn-primary" id="btn-step1-next" style="width: 100%;">Continue &rarr;</button>
+                </div>
             </div>
 
             <!-- STEP 2 -->
@@ -927,9 +928,11 @@
                     That ceiling is real. No matter how hard you work this month, that number doesn't change. This is what changes it.
                 </div>
 
-                <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
-                    <button class="btn btn-outline" id="btn-step2-back" style="flex: 1;">&larr; Back</button>
-                    <button class="btn btn-primary" id="btn-step2-next" style="flex: 2;">Continue &rarr;</button>
+                <div class="modal-sticky-footer">
+                    <div class="modal-btn-row">
+                        <button class="btn btn-outline" id="btn-step2-back" style="flex: 1;">&larr; Back</button>
+                        <button class="btn btn-primary" id="btn-step2-next" style="flex: 2;">Continue &rarr;</button>
+                    </div>
                 </div>
             </div>
 
@@ -961,9 +964,11 @@
                     Every month you wait is money you didn't make. The system is ready. You just have to decide.
                 </div>
 
-                <div style="display: flex; gap: 1rem;">
-                    <button class="btn btn-outline" id="btn-step3-back" style="flex: 1;">&larr; Back</button>
-                    <button class="btn btn-primary" id="btn-step3-submit" style="flex: 2;">See What I Get &rarr;</button>
+                <div class="modal-sticky-footer">
+                    <div class="modal-btn-row">
+                        <button class="btn btn-outline" id="btn-step3-back" style="flex: 1;">&larr; Back</button>
+                        <button class="btn btn-primary" id="btn-step3-submit" style="flex: 2;">See What I Get &rarr;</button>
+                    </div>
                 </div>
             </div>
 
@@ -988,7 +993,7 @@
 
             <div style="padding: 2rem 1rem 1rem; text-align: center;">
                 <div style="font-family: var(--font-serif); font-size: 1.3rem; font-weight: 800; color: var(--accent-gold); margin-bottom: 0.75rem; display: inline-flex; align-items: center; justify-content: center; gap: 10px;">
-                    <img src="exit logo new oneee.png" alt="The Exit Logo" style="height: 38px; width: auto; object-fit: contain;">
+                    <img src="exit%20logo%20new%20oneee.png" alt="The Exit Logo" style="height: 38px; width: auto; object-fit: contain;">
                     <span>The Exit</span>
                 </div>
                 <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">Here's Everything<br><span class="title-italic text-gold">You're Getting.</span></h2>
@@ -1115,10 +1120,12 @@
                 </div>
 
                 <!-- Final Checkout Button -->
-                <button class="btn btn-primary large checkout-final-link" id="final-checkout-link" style="width: 100%; font-size: 1.1rem; padding: 1.2rem;">
-                    Continue to Secure Checkout &rarr;
-                </button>
-                <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem;">You'll be taken to our secure payment page to complete enrolment.</div>
+                <div class="modal-sticky-footer value-stack-footer">
+                    <button class="btn btn-primary large checkout-final-link" id="final-checkout-link" style="width: 100%; font-size: 1.05rem; padding: 1.1rem;">
+                        Continue to Secure Checkout &rarr;
+                    </button>
+                    <div style="font-size: 0.78rem; color: var(--text-secondary); margin-top: 0.45rem; text-align: center;">You'll be taken to our secure payment page to complete enrolment.</div>
+                </div>
             </div>
         </div>
     </div>
@@ -1192,11 +1199,12 @@
                     </div>
                 </div>
 
-                <div class="form-error" id="review-form-error" style="display: none;">Please provide your name and review headline.</div>
-
-                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem; padding: 1.15rem; font-weight: 700;">
-                    Post Review &rarr;
-                </button>
+                <div class="modal-sticky-footer">
+                    <div class="form-error" id="review-form-error" style="display: none;">Please provide your name and review headline.</div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1.15rem; font-weight: 700;">
+                        Post Review &rarr;
+                    </button>
+                </div>
             </form>
 
             <div id="review-form-success" class="review-success-box" style="display: none;">

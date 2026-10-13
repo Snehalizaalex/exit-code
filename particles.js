@@ -1,19 +1,16 @@
 /**
- * Luxury Golden Particles Engine for The Exit
- * Self-contained, zero-dependency, works flawlessly with file://, http://, and https://
+ * Minimal Ambient Background Particles Engine for The Exit
+ * Elegant, subtle, non-intrusive ambient background drift.
  */
 
 (function () {
   'use strict';
 
-  const DEFAULT_COLORS = [
+  const SUBTLE_GOLD_COLORS = [
     '#CEA159', // Brand Gold
-    '#e5be7a', // Light Champagne Gold
-    '#ffd700', // Radiant Yellow Gold
-    '#f5c26b', // Warm Amber Gold
-    '#dfba73', // Antique Gold
-    '#fff6e5', // Warm White
-    '#ffffff'  // Pure Sparkling White
+    '#c8aa6e', // Soft Antique Gold
+    '#dfba73', // Light Champagne
+    '#b89047'  // Deep Amber
   ];
 
   function hexToRgb(hex) {
@@ -33,15 +30,14 @@
     if (!container) return null;
     options = options || {};
 
-    const particleCount = options.particleCount || 230;
-    const speedMultiplier = options.speed || 0.35;
+    const isMobile = (window.innerWidth || 800) < 768;
+    const particleCount = options.particleCount || (isMobile ? 18 : 32);
+    const speedMultiplier = options.speed || 0.12;
     const palette = (options.particleColors && options.particleColors.length > 0)
       ? options.particleColors
-      : DEFAULT_COLORS;
+      : SUBTLE_GOLD_COLORS;
     const rgbPalette = palette.map(hexToRgb);
-    const moveParticlesOnHover = options.moveParticlesOnHover !== false;
 
-    // Check if canvas already exists
     let canvas = container.querySelector('canvas.particles-canvas');
     if (!canvas) {
       canvas = document.createElement('canvas');
@@ -78,64 +74,15 @@
 
     resize();
 
-    // Mouse Tracking
-    let mouse = { x: -9999, y: -9999, targetX: -9999, targetY: -9999, active: false };
-    let mouseParallax = { x: 0, y: 0 };
-
-    function onMouseMove(e) {
-      mouse.targetX = e.clientX;
-      mouse.targetY = e.clientY;
-      mouse.active = true;
-
-      // Subtle parallax offset
-      const centerX = width / 2;
-      const centerY = height / 2;
-      mouseParallax.x = (e.clientX - centerX) * 0.03;
-      mouseParallax.y = (e.clientY - centerY) * 0.03;
-    }
-
-    function onMouseLeave() {
-      mouse.active = false;
-      mouse.targetX = -9999;
-      mouse.targetY = -9999;
-    }
-
-    if (moveParticlesOnHover) {
-      window.addEventListener('mousemove', onMouseMove, { passive: true });
-      document.addEventListener('mouseleave', onMouseLeave);
-    }
-
-    // Create Particles
+    // Create Minimal Particles - Tiny gold dust specks only, no giant bokeh orbs
     const particles = [];
 
     function createParticle(initialY) {
-      const z = Math.random(); // 0 = distant background, 1 = close foreground
       const color = rgbPalette[Math.floor(Math.random() * rgbPalette.length)];
-
-      // Size distribution: mostly fine luxury dust, with selective glowing bokeh orbs
-      let radius;
-      let isBokehOrb = false;
-
-      const sizeRoll = Math.random();
-      if (sizeRoll > 0.94) {
-        // Large glowing bokeh orb (like in screenshots)
-        radius = 5.5 + Math.random() * 4.5;
-        isBokehOrb = true;
-      } else if (sizeRoll > 0.70) {
-        // Medium glowing mote
-        radius = 2.4 + Math.random() * 2.5;
-        isBokehOrb = true;
-      } else {
-        // Delicate twinkling gold dust
-        radius = 0.8 + Math.random() * 1.5;
-      }
-
-      // Parallax-adjusted size
-      radius = radius * (0.65 + z * 0.65);
-
-      const baseAlpha = isBokehOrb
-        ? (0.55 + Math.random() * 0.4)
-        : (0.35 + Math.random() * 0.55);
+      // Subtle micro dust: radius 0.6px to 1.4px
+      const radius = 0.6 + Math.random() * 0.8;
+      // Gentle, low opacity: 0.12 to 0.28
+      const baseAlpha = 0.12 + Math.random() * 0.16;
 
       const x = Math.random() * width;
       const y = (initialY !== undefined) ? initialY : Math.random() * height;
@@ -143,21 +90,18 @@
       return {
         x: x,
         y: y,
-        z: z,
         radius: radius,
         color: color,
         baseAlpha: baseAlpha,
-        alpha: baseAlpha,
-        isBokehOrb: isBokehOrb,
-        // Upward floating drift with depth scaling
-        vy: -(0.18 + Math.random() * 0.38 + z * 0.25) * speedMultiplier,
-        vx: (Math.random() - 0.5) * 0.15 * speedMultiplier,
-        // Organic sinusoidal sway
-        swaySpeed: 0.0008 + Math.random() * 0.0016,
-        swayAmp: 0.25 + Math.random() * 0.65,
+        // Extremely gentle upward drift
+        vy: -(0.08 + Math.random() * 0.14) * speedMultiplier,
+        vx: (Math.random() - 0.5) * 0.05 * speedMultiplier,
+        // Very subtle natural sway
+        swaySpeed: 0.0005 + Math.random() * 0.0008,
+        swayAmp: 0.15 + Math.random() * 0.25,
         swayPhase: Math.random() * Math.PI * 2,
-        // Twinkling & breathing
-        twinkleSpeed: 0.0015 + Math.random() * 0.003,
+        // Soft ambient breathing
+        twinkleSpeed: 0.0008 + Math.random() * 0.0012,
         twinklePhase: Math.random() * Math.PI * 2
       };
     }
@@ -175,12 +119,6 @@
       const delta = Math.min(currentTime - lastTime, 64);
       lastTime = currentTime;
 
-      // Mouse smooth interpolation
-      if (mouse.active) {
-        mouse.x += (mouse.targetX - mouse.x) * 0.1;
-        mouse.y += (mouse.targetY - mouse.y) * 0.1;
-      }
-
       ctx.clearRect(0, 0, width, height);
 
       const time = currentTime;
@@ -188,78 +126,39 @@
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
 
-        // Sway motion
+        // Gentle ambient sway
         const sway = Math.sin(time * p.swaySpeed + p.swayPhase) * p.swayAmp;
         p.x += (p.vx + sway) * (delta / 16);
         p.y += p.vy * (delta / 16);
 
-        // Interactive mouse deflection (gentle, elegant organic repulsion)
-        if (moveParticlesOnHover && mouse.active) {
-          const dx = p.x - mouse.x;
-          const dy = p.y - mouse.y;
-          const distSq = dx * dx + dy * dy;
-          const maxDist = 130;
-          if (distSq < maxDist * maxDist && distSq > 0) {
-            const dist = Math.sqrt(distSq);
-            const force = (1 - dist / maxDist) * 1.8;
-            p.x += (dx / dist) * force;
-            p.y += (dy / dist) * force;
-          }
-        }
-
         // Screen boundary wrap
-        if (p.y < -30) {
-          p.y = height + 15 + Math.random() * 20;
+        if (p.y < -15) {
+          p.y = height + 10 + Math.random() * 15;
           p.x = Math.random() * width;
-        } else if (p.y > height + 35) {
-          p.y = -15;
+        } else if (p.y > height + 20) {
+          p.y = -10;
           p.x = Math.random() * width;
         }
 
-        if (p.x < -30) {
-          p.x = width + 15;
-        } else if (p.x > width + 30) {
-          p.x = -15;
+        if (p.x < -15) {
+          p.x = width + 10;
+        } else if (p.x > width + 15) {
+          p.x = -10;
         }
 
-        // Twinkle pulsating alpha
-        const twinkle = 0.72 + 0.28 * Math.sin(time * p.twinkleSpeed + p.twinklePhase);
-        const currentAlpha = Math.max(0.05, Math.min(1.0, p.baseAlpha * twinkle));
+        // Soft subtle twinkling
+        const twinkle = 0.78 + 0.22 * Math.sin(time * p.twinkleSpeed + p.twinklePhase);
+        const currentAlpha = Math.max(0.05, Math.min(0.35, p.baseAlpha * twinkle));
 
         const r = p.color.r;
         const g = p.color.g;
         const b = p.color.b;
 
-        // Draw particle
-        if (p.isBokehOrb) {
-          // Soft radiant glowing bokeh halo
-          const glowRadius = p.radius * 3.2;
-          const gradient = ctx.createRadialGradient(
-            p.x, p.y, 0,
-            p.x, p.y, glowRadius
-          );
-          gradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, ${currentAlpha * 0.95})`);
-          gradient.addColorStop(0.35, `rgba(${r}, ${g}, ${b}, ${currentAlpha * 0.4})`);
-          gradient.addColorStop(0.7, `rgba(${r}, ${g}, ${b}, ${currentAlpha * 0.12})`);
-          gradient.addColorStop(1, `rgba(${r}, ${g}, ${b}, 0)`);
-
-          ctx.fillStyle = gradient;
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, glowRadius, 0, Math.PI * 2);
-          ctx.fill();
-
-          // Bright inner core
-          ctx.fillStyle = `rgba(255, 255, 255, ${currentAlpha * 0.85})`;
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, Math.max(0.8, p.radius * 0.45), 0, Math.PI * 2);
-          ctx.fill();
-        } else {
-          // Crisp luxury sparkling gold dust
-          ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${currentAlpha})`;
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-          ctx.fill();
-        }
+        // Draw delicate micro gold dust
+        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${currentAlpha})`;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fill();
       }
     }
 
@@ -270,10 +169,6 @@
     return function destroy() {
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener('resize', resize);
-      if (moveParticlesOnHover) {
-        window.removeEventListener('mousemove', onMouseMove);
-        document.removeEventListener('mouseleave', onMouseLeave);
-      }
       if (canvas && canvas.parentNode) {
         canvas.parentNode.removeChild(canvas);
       }
@@ -289,9 +184,8 @@
     if (bgContainer && !bgContainer.hasAttribute('data-particles-loaded')) {
       bgContainer.setAttribute('data-particles-loaded', 'true');
       initParticles(bgContainer, {
-        particleCount: 220,
-        speed: 0.35,
-        moveParticlesOnHover: true
+        speed: 0.12,
+        moveParticlesOnHover: false
       });
     }
   }

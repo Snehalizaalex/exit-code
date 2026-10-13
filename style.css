@@ -36,19 +36,43 @@ html {
 body {
     overflow-x: hidden;
     line-height: 1.6;
-    padding-bottom: 80px; /* Space for sticky CTA */
+    padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px)); /* Space for sticky CTA */
 }
 
-/* Particles Background */
+body.modal-open {
+    overflow: hidden !important;
+    touch-action: none;
+}
+
+/* Particles Background - Minimal Ambient Background Only */
 .particles-container {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 1;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
     pointer-events: none;
     overflow: hidden;
+}
+
+/* Ensure all text, content, and images sit above the background particles */
+.navbar,
+.hero,
+.section,
+.stats-grid-section,
+.how-it-works,
+.testimonials,
+.one-on-one,
+.journey-section,
+.faq-section,
+.final-cta,
+.footer,
+.ticker-wrap,
+.sticky-cta,
+.modal-overlay {
+    position: relative;
+    z-index: 2;
 }
 
 a {
@@ -1441,21 +1465,63 @@ a {
     font-size: 0.9rem;
 }
 
-/* Animations */
+/* Animations - Completely disabled on text, content, and images as requested */
 .fade-up {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
 }
 
 .fade-up.visible {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
 }
 
-.delay-1 { transition-delay: 100ms; }
-.delay-2 { transition-delay: 200ms; }
-.delay-3 { transition-delay: 300ms; }
+.delay-1, .delay-2, .delay-3 {
+    transition-delay: 0s !important;
+    animation-delay: 0s !important;
+}
+
+/* Static content and images - No hover shifts or movement */
+.exit-review-card:hover,
+.grid-stat-box:hover,
+.p-icon-box:hover,
+.package-card:hover,
+.test-img-placeholder:hover,
+.exit-proof-img-wrap:hover,
+.exit-frame-cta-btn:hover,
+.btn-review-outline:hover,
+.btn-primary:hover,
+.j-item:hover {
+    transform: none !important;
+}
+
+.test-img-placeholder:hover img,
+.exit-proof-img-wrap:hover img {
+    transform: none !important;
+}
+
+.exit-pulse-dot {
+    animation: none !important;
+}
+
+.package-pulse {
+    display: none !important;
+    animation: none !important;
+}
+
+.process-arc-svg path {
+    animation: none !important;
+}
+
+.moving-package {
+    display: none !important;
+}
+
+.ticker {
+    animation: none !important;
+}
 
 /* Eyebrows & Badges */
 .eyebrow {
@@ -1877,19 +1943,26 @@ a {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    height: 100dvh;
+    min-height: -webkit-fill-available;
     background-color: rgba(0, 0, 0, 0.85);
+    -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
     z-index: 2000;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
-    padding: 1rem;
+    padding: 2rem 1rem;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
 }
 
 .modal-overlay.active {
@@ -1903,15 +1976,43 @@ a {
     border-radius: 16px;
     max-width: 600px;
     width: 100%;
-    max-height: 90vh;
+    max-height: calc(100dvh - 3rem);
+    max-height: calc(100vh - 3rem);
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
     padding: 2.5rem;
     position: relative;
     box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+    margin: auto 0;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .modal-content.wide {
     max-width: 800px;
+}
+
+/* Modal Sticky Footer (Ensures Continue button is visible while scrolling) */
+.modal-sticky-footer {
+    position: relative;
+    margin-top: 1.5rem;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.modal-sticky-footer .modal-btn-row {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+}
+
+.modal-sticky-footer .form-error {
+    margin-bottom: 0.5rem;
 }
 
 .modal-close-btn {
@@ -2930,7 +3031,11 @@ a {
 
     /* Sticky Bottom CTA */
     .sticky-cta {
-        padding: 0.65rem 0;
+        padding: 0.65rem 0 calc(0.65rem + env(safe-area-inset-bottom, 0px)) 0;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
     }
 
     .sticky-container {
@@ -2982,13 +3087,60 @@ a {
 
     /* Modals (Lead Capture & Value Stack) */
     .modal-overlay {
-        padding: 0.65rem;
+        padding: 0.5rem 0.5rem calc(0.5rem + env(safe-area-inset-bottom, 0px)) 0.5rem;
+        align-items: flex-start;
     }
 
     .modal-content {
-        padding: 1.5rem 1rem !important;
-        border-radius: 12px !important;
-        max-height: 90vh !important;
+        padding: 1.5rem 1rem 0 !important;
+        border-radius: 16px !important;
+        max-height: calc(100dvh - 1rem) !important;
+        max-height: calc(100vh - 1rem) !important;
+        margin: auto 0 !important;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+        position: relative;
+    }
+
+    /* Mobile Sticky Footer - GUARANTEES Continue button is always visible while scrolling on iOS */
+    .modal-sticky-footer {
+        position: sticky;
+        bottom: 0;
+        margin: 1.25rem -1rem 0 -1rem;
+        padding: 0.85rem 1rem calc(0.85rem + env(safe-area-inset-bottom, 12px)) 1rem;
+        background: linear-gradient(180deg, rgba(10, 10, 10, 0) 0%, rgba(10, 10, 10, 0.92) 20%, rgba(10, 10, 10, 0.98) 100%);
+        -webkit-backdrop-filter: blur(14px);
+        backdrop-filter: blur(14px);
+        border-top: 1px solid rgba(206, 161, 89, 0.2);
+        box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.8);
+        z-index: 100;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        will-change: transform;
+    }
+
+    .modal-sticky-footer .modal-btn-row {
+        display: flex;
+        gap: 0.65rem;
+        width: 100%;
+    }
+
+    .modal-sticky-footer .modal-btn-row .btn {
+        margin-top: 0 !important;
+    }
+
+    .modal-sticky-footer .btn-primary,
+    .modal-sticky-footer .checkout-final-link {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        box-shadow: 0 4px 18px rgba(212, 175, 55, 0.35);
     }
 
     .modal-close-btn {
@@ -3024,9 +3176,9 @@ a {
         margin-bottom: 0.35rem;
     }
 
-    .form-input, .form-select {
+    .form-input, .form-select, .review-textarea {
         padding: 0.75rem 0.85rem !important;
-        font-size: 0.95rem !important;
+        font-size: 16px !important; /* 16px prevents iOS Safari auto-zoom on input focus */
     }
 
     .radio-option-card {

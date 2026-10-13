@@ -9,16 +9,8 @@ const YOUR_CHECKOUT_LINK = "https://checkout.theexit.in/";
 const YOUR_WEBHOOK = "https://api.theexit.in/v1/lead-webhook";
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Fade Up Observer
-    const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, observerOptions);
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    // 1. Static Content - No text, content, or image entrance animations
+    document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
 
     // 2. Dynamic Seats Counter Initializers
     document.querySelectorAll('.seats-counter-val').forEach(el => {
@@ -303,10 +295,10 @@ document.addEventListener('DOMContentLoaded', () => {
             movingPackage.style.transform = `translate3d(${posX.toFixed(1)}px, ${posY.toFixed(1)}px, 0) rotate(${angle.toFixed(1)}deg)`;
         }
 
-        requestAnimationFrame(renderLoop);
+        // Static - No continuous content animation loop
     }
 
-    requestAnimationFrame(renderLoop);
+    setProcessStep(1); // Show clean static process state
 
     const replayBtn = document.getElementById('process-replay-btn');
     if (replayBtn) {
@@ -359,11 +351,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeBtns = document.querySelectorAll('.modal-close-btn');
 
     function openLeadModal() {
-        if (leadModal) leadModal.classList.add('active');
+        if (leadModal) {
+            leadModal.classList.add('active');
+            document.body.classList.add('modal-open');
+            document.body.style.overflow = 'hidden';
+        }
     }
 
     function openReviewModal() {
-        if (reviewModal) reviewModal.classList.add('active');
+        if (reviewModal) {
+            reviewModal.classList.add('active');
+            document.body.classList.add('modal-open');
+            document.body.style.overflow = 'hidden';
+        }
     }
 
     function closeAllModals() {
@@ -371,9 +371,22 @@ document.addEventListener('DOMContentLoaded', () => {
         if (valueModal) valueModal.classList.remove('active');
         if (reviewModal) reviewModal.classList.remove('active');
         if (lightboxModal) lightboxModal.classList.remove('active');
+        document.body.classList.remove('modal-open');
+        document.body.style.overflow = '';
     }
 
     closeBtns.forEach(btn => btn.addEventListener('click', closeAllModals));
+
+    // Backdrop click dismiss for modals
+    [leadModal, valueModal, reviewModal].forEach(modalOverlay => {
+        if (modalOverlay) {
+            modalOverlay.addEventListener('click', (e) => {
+                if (e.target === modalOverlay) {
+                    closeAllModals();
+                }
+            });
+        }
+    });
 
     // Bind review buttons
     document.querySelectorAll('.trigger-review-modal').forEach(btn => {
@@ -540,7 +553,11 @@ document.addEventListener('DOMContentLoaded', () => {
             // Auto advance after 2.2 seconds to Page 3 Value Stack Modal
             setTimeout(() => {
                 closeAllModals();
-                if (valueModal) valueModal.classList.add('active');
+                if (valueModal) {
+                    valueModal.classList.add('active');
+                    document.body.classList.add('modal-open');
+                    document.body.style.overflow = 'hidden';
+                }
             }, 2200);
         });
     }
