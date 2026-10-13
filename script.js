@@ -727,7 +727,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             newCard.innerHTML = `
-                <div class="exit-stars-top">${starString}</div>
                 <div class="exit-reviewer-row">
                     <div class="exit-avatar-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
@@ -736,15 +735,17 @@ document.addEventListener('DOMContentLoaded', () => {
                         </svg>
                     </div>
                     <div class="exit-reviewer-details">
-                        <div class="exit-reviewer-name">${author} <span style="font-size:0.8rem; font-weight:normal; color:var(--text-secondary);">&middot; ${location}</span></div>
-                        <div class="exit-reviewer-meta">
-                            <span class="exit-stars-mini">${starString}</span>
+                        <div class="exit-reviewer-name">
+                            ${author} ${location ? `<span style="font-size:0.8rem; font-weight:normal; color:var(--text-secondary);">&middot; ${location}</span>` : ''}
                             <span class="exit-verified-tag">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                                 </svg>
-                                Verified Purchase
+                                Verified
                             </span>
+                        </div>
+                        <div class="exit-reviewer-meta">
+                            <span class="exit-stars-mini">${starString}</span>
                         </div>
                     </div>
                 </div>
