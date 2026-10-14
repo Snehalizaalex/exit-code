@@ -360,6 +360,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function openLeadModal() {
         if (leadModal) {
             leadModal.classList.add('active');
+            leadModal.scrollTop = 0;
+            const content = leadModal.querySelector('.modal-content');
+            if (content) content.scrollTop = 0;
             document.body.classList.add('modal-open');
             document.body.style.overflow = 'hidden';
         }
@@ -368,6 +371,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function openReviewModal() {
         if (reviewModal) {
             reviewModal.classList.add('active');
+            reviewModal.scrollTop = 0;
+            const content = reviewModal.querySelector('.modal-content');
+            if (content) content.scrollTop = 0;
             document.body.classList.add('modal-open');
             document.body.style.overflow = 'hidden';
         }
@@ -453,6 +459,7 @@ document.addEventListener('DOMContentLoaded', () => {
             leadData.email = email;
 
             currentStep = 2;
+            if (leadModal) leadModal.scrollTop = 0;
             if (step1Box) step1Box.style.display = 'none';
             if (step2Box) step2Box.style.display = 'block';
             if (progressFill) progressFill.style.width = '66%';
@@ -482,6 +489,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnStep2Back) {
         btnStep2Back.addEventListener('click', () => {
             currentStep = 1;
+            if (leadModal) leadModal.scrollTop = 0;
             if (step2Box) step2Box.style.display = 'none';
             if (step1Box) step1Box.style.display = 'block';
             if (progressFill) progressFill.style.width = '33%';
@@ -497,6 +505,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
             currentStep = 3;
+            if (leadModal) leadModal.scrollTop = 0;
             if (step2Box) step2Box.style.display = 'none';
             if (step3Box) step3Box.style.display = 'block';
             if (progressFill) progressFill.style.width = '90%';
@@ -527,6 +536,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnStep3Back) {
         btnStep3Back.addEventListener('click', () => {
             currentStep = 2;
+            if (leadModal) leadModal.scrollTop = 0;
             if (step3Box) step3Box.style.display = 'none';
             if (step2Box) step2Box.style.display = 'block';
             if (progressFill) progressFill.style.width = '66%';
@@ -716,11 +726,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const author = document.getElementById('review-author').value.trim();
             const location = document.getElementById('review-location').value.trim() || 'Verified Student';
             const headline = document.getElementById('review-headline').value.trim();
-            const story = document.getElementById('review-text').value.trim();
+            const storyEl = document.getElementById('review-text');
+            const story = storyEl ? storyEl.value.trim() : '';
             const errorEl = document.getElementById('review-form-error');
 
             if (!author || !headline) {
-                if (errorEl) errorEl.style.display = 'block';
+                if (errorEl) {
+                    errorEl.textContent = 'Please provide your name and write your review.';
+                    errorEl.style.display = 'block';
+                }
                 return;
             }
             if (errorEl) errorEl.style.display = 'none';

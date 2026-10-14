@@ -44,7 +44,6 @@ body {
 
 body.modal-open {
     overflow: hidden !important;
-    touch-action: none;
 }
 
 /* Particles Background - Minimal Ambient Particles */
@@ -3007,11 +3006,12 @@ a {
         flex-shrink: 0;
     }
 
-    /* Social Proof Toast (Compact) */
+    /* Social Proof Toast (Compact - Left Corner on Mobile) */
     .toast-container {
         bottom: calc(4.3rem + env(safe-area-inset-bottom, 0px));
-        left: 50%;
-        transform: translate(-50%, 150%);
+        left: 0.85rem;
+        right: auto;
+        transform: translateY(150%);
         width: -webkit-fit-content;
         width: fit-content;
         min-width: 125px;
@@ -3019,7 +3019,7 @@ a {
     }
 
     .toast-container.show {
-        transform: translate(-50%, 0);
+        transform: translateY(0);
     }
 
     .toast-content {
@@ -3039,43 +3039,42 @@ a {
         font-size: 0.58rem;
     }
 
-    /* Modals (Lead Capture & Value Stack) */
+    /* Modals (Lead Capture & Value Stack) — Mobile Native Scrolling & Full Visibility */
     .modal-overlay {
-        padding: 0.5rem 0.5rem calc(0.5rem + env(safe-area-inset-bottom, 0px)) 0.5rem;
-        align-items: flex-start;
+        padding: 0.75rem 0.65rem calc(4rem + env(safe-area-inset-bottom, 20px)) 0.65rem !important;
+        align-items: flex-start !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        touch-action: pan-y !important;
+        overscroll-behavior: contain;
     }
 
     .modal-content {
-        padding: 1.5rem 1rem 0 !important;
+        padding: 1.5rem 1.15rem 1.85rem !important;
         border-radius: 16px !important;
-        max-height: calc(100dvh - 1rem) !important;
-        max-height: calc(100vh - 1rem) !important;
-        margin: auto 0 !important;
-        display: flex;
-        flex-direction: column;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-        overscroll-behavior: contain;
-        position: relative;
+        max-height: none !important;
+        height: auto !important;
+        margin: 0.5rem auto 2.5rem auto !important;
+        display: block !important;
+        overflow: visible !important;
+        touch-action: pan-y !important;
+        position: relative !important;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.85) !important;
     }
 
-    /* Mobile Sticky Footer - GUARANTEES Continue button is always visible while scrolling on iOS */
     .modal-sticky-footer {
-        position: sticky;
-        bottom: 0;
-        margin: 1.25rem -1rem 0 -1rem;
-        padding: 0.85rem 1rem calc(0.85rem + env(safe-area-inset-bottom, 12px)) 1rem;
-        background: linear-gradient(180deg, rgba(10, 10, 10, 0) 0%, rgba(10, 10, 10, 0.92) 20%, rgba(10, 10, 10, 0.98) 100%);
-        -webkit-backdrop-filter: blur(14px);
-        backdrop-filter: blur(14px);
-        border-top: 1px solid rgba(206, 161, 89, 0.2);
-        box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.8);
-        z-index: 100;
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0);
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        will-change: transform;
+        position: relative !important;
+        bottom: auto !important;
+        margin: 1.5rem 0 0 0 !important;
+        padding: 0 !important;
+        background: none !important;
+        border-top: none !important;
+        box-shadow: none !important;
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
+        z-index: 10 !important;
+        transform: none !important;
+        will-change: auto !important;
     }
 
     .modal-sticky-footer .modal-btn-row {
@@ -3086,15 +3085,16 @@ a {
 
     .modal-sticky-footer .modal-btn-row .btn {
         margin-top: 0 !important;
+        padding: 0.95rem 1rem !important;
+        font-size: 0.95rem !important;
+        font-weight: 700 !important;
     }
 
     .modal-sticky-footer .btn-primary,
     .modal-sticky-footer .checkout-final-link {
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0);
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
         box-shadow: 0 4px 18px rgba(212, 175, 55, 0.35);
+        padding: 0.95rem 1rem !important;
+        font-size: 0.95rem !important;
     }
 
     .modal-close-btn {
