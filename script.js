@@ -7,10 +7,17 @@ const SEATS_LEFT = SEATS_TOTAL - SEATS_TAKEN; // 26
 const YOUR_VIDEO_EMBED_URL = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1";
 const YOUR_CHECKOUT_LINK = "https://checkout.theexit.in/";
 const YOUR_WEBHOOK = "https://api.theexit.in/v1/lead-webhook";
-
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Static Content - No text, content, or image entrance animations
-    document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
+    // 1. Fade Up Observer
+    const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
     // 2. Dynamic Seats Counter Initializers
     document.querySelectorAll('.seats-counter-val').forEach(el => {
