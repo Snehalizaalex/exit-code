@@ -295,10 +295,10 @@ document.addEventListener('DOMContentLoaded', () => {
             movingPackage.style.transform = `translate3d(${posX.toFixed(1)}px, ${posY.toFixed(1)}px, 0) rotate(${angle.toFixed(1)}deg)`;
         }
 
-        // Static - No continuous content animation loop
+        requestAnimationFrame(renderLoop);
     }
 
-    setProcessStep(1); // Show clean static process state
+    requestAnimationFrame(renderLoop);
 
     const replayBtn = document.getElementById('process-replay-btn');
     if (replayBtn) {

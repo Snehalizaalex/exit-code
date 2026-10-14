@@ -1,16 +1,17 @@
 /**
- * Minimal Ambient Background Particles Engine for The Exit
- * Elegant, subtle, non-intrusive ambient background drift.
+ * Elegant Golden Particles Engine for The Exit
+ * Small, clearly visible, delicate ambient gold sparkles in the background.
  */
 
 (function () {
   'use strict';
 
-  const SUBTLE_GOLD_COLORS = [
+  const GOLD_COLORS = [
     '#CEA159', // Brand Gold
-    '#c8aa6e', // Soft Antique Gold
-    '#dfba73', // Light Champagne
-    '#b89047'  // Deep Amber
+    '#f6cf7d', // Radiant Champagne Gold
+    '#ffd700', // Sparkling Gold
+    '#f3b74e', // Warm Amber Gold
+    '#dfba73'  // Antique Gold
   ];
 
   function hexToRgb(hex) {
@@ -31,11 +32,12 @@
     options = options || {};
 
     const isMobile = (window.innerWidth || 800) < 768;
-    const particleCount = options.particleCount || (isMobile ? 18 : 32);
-    const speedMultiplier = options.speed || 0.12;
+    // A clean "few" particles: visible, but not an overwhelming 220 swarm
+    const particleCount = options.particleCount || (isMobile ? 42 : 78);
+    const speedMultiplier = options.speed || 0.35;
     const palette = (options.particleColors && options.particleColors.length > 0)
       ? options.particleColors
-      : SUBTLE_GOLD_COLORS;
+      : GOLD_COLORS;
     const rgbPalette = palette.map(hexToRgb);
 
     let canvas = container.querySelector('canvas.particles-canvas');
@@ -74,15 +76,31 @@
 
     resize();
 
-    // Create Minimal Particles - Tiny gold dust specks only, no giant bokeh orbs
+    // Mouse Tracking for gentle ambient parallax
+    let mouse = { x: -9999, y: -9999, active: false };
+
+    function onMouseMove(e) {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+      mouse.active = true;
+    }
+
+    function onMouseLeave() {
+      mouse.active = false;
+    }
+
+    window.addEventListener('mousemove', onMouseMove, { passive: true });
+    document.addEventListener('mouseleave', onMouseLeave);
+
+    // Create Small, Visible Gold Particles
     const particles = [];
 
     function createParticle(initialY) {
       const color = rgbPalette[Math.floor(Math.random() * rgbPalette.length)];
-      // Subtle micro dust: radius 0.6px to 1.4px
-      const radius = 0.6 + Math.random() * 0.8;
-      // Gentle, low opacity: 0.12 to 0.28
-      const baseAlpha = 0.12 + Math.random() * 0.16;
+      // Small, clearly visible gold motes (radius 1.5px to 3.2px)
+      const radius = 1.5 + Math.random() * 1.7;
+      // High, crisp visibility opacity (0.50 to 0.88)
+      const baseAlpha = 0.50 + Math.random() * 0.38;
 
       const x = Math.random() * width;
       const y = (initialY !== undefined) ? initialY : Math.random() * height;
@@ -93,15 +111,15 @@
         radius: radius,
         color: color,
         baseAlpha: baseAlpha,
-        // Extremely gentle upward drift
-        vy: -(0.08 + Math.random() * 0.14) * speedMultiplier,
-        vx: (Math.random() - 0.5) * 0.05 * speedMultiplier,
-        // Very subtle natural sway
-        swaySpeed: 0.0005 + Math.random() * 0.0008,
-        swayAmp: 0.15 + Math.random() * 0.25,
+        // Steady upward floating drift
+        vy: -(0.22 + Math.random() * 0.32) * speedMultiplier,
+        vx: (Math.random() - 0.5) * 0.12 * speedMultiplier,
+        // Subtle organic sway
+        swaySpeed: 0.001 + Math.random() * 0.0015,
+        swayAmp: 0.3 + Math.random() * 0.45,
         swayPhase: Math.random() * Math.PI * 2,
-        // Soft ambient breathing
-        twinkleSpeed: 0.0008 + Math.random() * 0.0012,
+        // Gentle sparkling twinkle
+        twinkleSpeed: 0.0015 + Math.random() * 0.0025,
         twinklePhase: Math.random() * Math.PI * 2
       };
     }
@@ -126,39 +144,49 @@
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
 
-        // Gentle ambient sway
+        // Sway motion
         const sway = Math.sin(time * p.swaySpeed + p.swayPhase) * p.swayAmp;
         p.x += (p.vx + sway) * (delta / 16);
         p.y += p.vy * (delta / 16);
 
         // Screen boundary wrap
-        if (p.y < -15) {
-          p.y = height + 10 + Math.random() * 15;
+        if (p.y < -20) {
+          p.y = height + 15 + Math.random() * 20;
           p.x = Math.random() * width;
-        } else if (p.y > height + 20) {
-          p.y = -10;
+        } else if (p.y > height + 25) {
+          p.y = -15;
           p.x = Math.random() * width;
         }
 
-        if (p.x < -15) {
-          p.x = width + 10;
-        } else if (p.x > width + 15) {
-          p.x = -10;
+        if (p.x < -20) {
+          p.x = width + 15;
+        } else if (p.x > width + 20) {
+          p.x = -15;
         }
 
-        // Soft subtle twinkling
-        const twinkle = 0.78 + 0.22 * Math.sin(time * p.twinkleSpeed + p.twinklePhase);
-        const currentAlpha = Math.max(0.05, Math.min(0.35, p.baseAlpha * twinkle));
+        // Sparkling twinkle alpha
+        const twinkle = 0.70 + 0.30 * Math.sin(time * p.twinkleSpeed + p.twinklePhase);
+        const currentAlpha = Math.max(0.25, Math.min(1.0, p.baseAlpha * twinkle));
 
         const r = p.color.r;
         const g = p.color.g;
         const b = p.color.b;
 
-        // Draw delicate micro gold dust
+        // Draw small glowing gold mote
+        ctx.save();
+        ctx.shadowBlur = 7;
+        ctx.shadowColor = `rgba(${r}, ${g}, ${b}, ${currentAlpha * 0.85})`;
         ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${currentAlpha})`;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         ctx.fill();
+
+        // Delicate bright inner spark
+        ctx.fillStyle = `rgba(255, 255, 255, ${currentAlpha * 0.75})`;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, Math.max(0.6, p.radius * 0.45), 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
       }
     }
 
@@ -169,6 +197,8 @@
     return function destroy() {
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener('resize', resize);
+      window.removeEventListener('mousemove', onMouseMove);
+      document.removeEventListener('mouseleave', onMouseLeave);
       if (canvas && canvas.parentNode) {
         canvas.parentNode.removeChild(canvas);
       }
@@ -184,8 +214,7 @@
     if (bgContainer && !bgContainer.hasAttribute('data-particles-loaded')) {
       bgContainer.setAttribute('data-particles-loaded', 'true');
       initParticles(bgContainer, {
-        speed: 0.12,
-        moveParticlesOnHover: false
+        speed: 0.35
       });
     }
   }
