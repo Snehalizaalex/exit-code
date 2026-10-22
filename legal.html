@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal &mdash; The Exit</title>
+    <meta name="description"
+        content="Legal terms, refund policy, earnings disclaimer, privacy policy, cookie policy, and contact details for The Exit (Sai Sajeev Group Ltd.).">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #000000;
+            --card-bg: #0b0b0b;
+            --card-hover: #111111;
+            --border-color: rgba(255, 255, 255, 0.09);
+            --border-light: rgba(255, 255, 255, 0.16);
+            --text-main: #ededed;
+            --text-muted: #9e9e9e;
+            --text-faint: #666666;
+            --accent-gold: #CEA159;
+            --accent-gold-glow: rgba(206, 161, 89, 0.22);
+            --accent-hover: #e0b875;
+            --font-serif: 'Playfair Display', Georgia, serif;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 110px;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            line-height: 1.65;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Top Brand Bar */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.88);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0.85rem 1.25rem;
+        }
+
+        .header-inner {
+            max-width: 920px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .brand-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--accent-gold);
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            letter-spacing: 0.22em;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: opacity 0.2s;
+        }
+
+        .brand-link:hover {
+            opacity: 0.85;
+        }
+
+        .brand-link img {
+            height: 28px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .back-home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 0.45rem 0.9rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background: rgba(255, 255, 255, 0.03);
+            transition: all 0.2s ease;
+        }
+
+        .back-home-btn:hover {
+            color: var(--accent-gold);
+            border-color: var(--accent-gold);
+            background: rgba(206, 161, 89, 0.08);
+        }
+
+        /* Sub-Header Tabs Nav */
+        .tabs-sticky-wrapper {
+            position: sticky;
+            top: 55px;
+            z-index: 90;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0.6rem 1rem;
+        }
+
+        .nav-tabs {
+            max-width: 920px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding: 0.2rem 0;
+        }
+
+        .nav-tabs::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-tab {
+            white-space: nowrap;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 0.45rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .nav-tab:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+            background: rgba(206, 161, 89, 0.06);
+        }
+
+        .nav-tab.active {
+            border-color: var(--accent-gold);
+            background: var(--accent-gold);
+            color: #000000;
+            font-weight: 600;
+        }
+
+        /* Container & Hero */
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 2.5rem 1.25rem 5rem;
+        }
+
+        .legal-hero {
+            margin-bottom: 2.25rem;
+        }
+
+        .legal-title {
+            font-family: var(--font-serif);
+            font-size: 2.85rem;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.15;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .legal-date {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.75rem;
+        }
+
+        /* Intro Callout Card */
+        .intro-callout {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem 1.65rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .intro-callout p {
+            color: var(--text-main);
+            font-size: 0.98rem;
+            line-height: 1.65;
+            margin-bottom: 0.85rem;
+        }
+
+        .intro-callout p:last-child {
+            margin-bottom: 0;
+            color: var(--text-muted);
+        }
+
+        .intro-callout strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .intro-callout a,
+        .legal-content a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            border-bottom: 1px dotted rgba(206, 161, 89, 0.5);
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .intro-callout a:hover,
+        .legal-content a:hover {
+            color: var(--accent-hover);
+            border-bottom-color: var(--accent-hover);
+        }
+
+        /* Section Layout */
+        .legal-section {
+            padding-top: 2rem;
+            margin-bottom: 3.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .section-eyebrow {
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            margin-bottom: 0.35rem;
+        }
+
+        .section-heading {
+            font-family: var(--font-serif);
+            font-size: 2.1rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1.65rem;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+
+        .clause-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 1.75rem 0 0.65rem 0;
+            line-height: 1.35;
+        }
+
+        .legal-content p {
+            color: #d1d1d1;
+            font-size: 0.98rem;
+            line-height: 1.72;
+            margin-bottom: 1rem;
+        }
+
+        .legal-content p strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .legal-content ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0.75rem 0 1.25rem 0;
+        }
+
+        .legal-content li {
+            position: relative;
+            padding-left: 1.4rem;
+            color: #cfcfcf;
+            font-size: 0.96rem;
+            line-height: 1.65;
+            margin-bottom: 0.65rem;
+        }
+
+        .legal-content li::before {
+            content: "•";
+            position: absolute;
+            left: 0.3rem;
+            top: -0.05rem;
+            color: var(--accent-gold);
+            font-size: 1.25rem;
+            line-height: 1;
+        }
+
+        .legal-content li strong {
+            color: #ffffff;
+        }
+
+        /* Callout Box with Gold Left Border */
+        .gold-callout-box {
+            background: #0d0c08;
+            border: 1px solid rgba(206, 161, 89, 0.25);
+            border-left: 3px solid var(--accent-gold);
+            border-radius: 6px;
+            padding: 1.35rem 1.5rem;
+            margin: 1.5rem 0 1.75rem 0;
+        }
+
+        .gold-callout-box p {
+            color: #dedede;
+            font-size: 0.98rem;
+            line-height: 1.65;
+            margin-bottom: 0;
+        }
+
+        .gold-callout-box strong {
+            color: #ffffff;
+        }
+
+        /* Legal Tables */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            margin: 1.5rem 0 2rem 0;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--card-bg);
+        }
+
+        table.legal-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.92rem;
+            text-align: left;
+        }
+
+        table.legal-table th,
+        table.legal-table td {
+            padding: 0.95rem 1.1rem;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: top;
+        }
+
+        table.legal-table th {
+            background: #121212;
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 0.88rem;
+            letter-spacing: 0.03em;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        table.legal-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        table.legal-table td {
+            color: #cfcfcf;
+            line-height: 1.55;
+        }
+
+        /* Contact Details Cards */
+        .contact-cards-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin: 1.5rem 0 2rem 0;
+        }
+
+        @media (min-width: 640px) {
+            .contact-cards-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .contact-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.35rem;
+            transition: border-color 0.2s;
+        }
+
+        .contact-card:hover {
+            border-color: rgba(206, 161, 89, 0.4);
+        }
+
+        .contact-card-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.45rem;
+        }
+
+        .contact-card p {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            line-height: 1.55;
+            margin-bottom: 0.35rem;
+        }
+
+        .contact-card p strong {
+            color: #ededed;
+        }
+
+        .contact-card a {
+            word-break: break-all;
+        }
+
+        /* Back to top Link */
+        .back-to-top {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--accent-gold);
+            font-size: 0.86rem;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 1.5rem;
+            transition: transform 0.2s, color 0.2s;
+        }
+
+        .back-to-top:hover {
+            color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .legal-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 1.25rem 4rem;
+            text-align: center;
+            background: #050505;
+        }
+
+        .footer-brand-title {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            letter-spacing: 0.25em;
+            color: var(--accent-gold);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        .footer-copy {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-back-link {
+            display: inline-block;
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: 500;
+            padding: 0.6rem 1.25rem;
+            border: 1px solid rgba(206, 161, 89, 0.3);
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .footer-back-link:hover {
+            border-color: var(--accent-gold);
+            background: rgba(206, 161, 89, 0.08);
+            color: var(--accent-hover);
+        }
+
+        @media (max-width: 600px) {
+            .legal-title {
+                font-size: 2.2rem;
+            }
+
+            .section-heading {
+                font-size: 1.7rem;
+            }
+
+            .container {
+                padding: 1.75rem 1rem 3.5rem;
+            }
+
+            .gold-callout-box,
+            .intro-callout {
+                padding: 1.15rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- TOP BRAND BAR -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="brand-link" title="The Exit - Back to Homepage">
+                <img src="exit%20logo%20new%20oneee.png" alt="The Exit Logo">
+                <span>THE EXIT</span>
+            </a>
+            <a href="index.html" class="back-home-btn">&larr; Back to Home</a>
+        </div>
+    </header>
+
+    <!-- STICKY SECTION NAVIGATION TABS -->
+    <nav class="tabs-sticky-wrapper" aria-label="Legal sections">
+        <div class="nav-tabs" id="nav-tabs">
+            <a href="#terms" class="nav-tab active">Terms</a>
+            <a href="#refunds" class="nav-tab">Refunds</a>
+            <a href="#earnings" class="nav-tab">Earnings Disclaimer</a>
+            <a href="#privacy" class="nav-tab">Privacy</a>
+            <a href="#cookies" class="nav-tab">Cookies</a>
+            <a href="#contact" class="nav-tab">Contact</a>
+        </div>
+    </nav>
+
+    <!-- MAIN LEGAL CONTENT CONTAINER -->
+    <main class="container">
+
+        <!-- HERO / INTRO -->
+        <div class="legal-hero">
+            <h1 class="legal-title">Legal</h1>
+            <div class="legal-date">Last updated: October 22, 2026</div>
+
+            <div class="intro-callout">
+                <p><strong>The Exit</strong> is a brand of <strong>Sai Sajeev Group Ltd.</strong>, a company
+                    incorporated in Alberta, Canada (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;). This page
+                    contains our Terms and Conditions, Refund and Cancellation Policy, Earnings Disclaimer, Privacy
+                    Policy, Cookie Policy, and Contact and Grievance details.</p>
+                <p>Please read it before you buy. If anything is unclear, contact us at <a
+                        href="mailto:saisajeevyt@gmail.com">saisajeevyt@gmail.com</a>.</p>
+            </div>
+        </div>
+
+        <div class="legal-content">
+
+            <!-- SECTION 1: TERMS AND CONDITIONS -->
+            <section id="terms" class="legal-section">
+                <div class="section-eyebrow">SECTION 1</div>
+                <h2 class="section-heading">Terms and Conditions</h2>
+
+                <h3 class="clause-title">1.1 Acceptance</h3>
+                <p>Using our website, signing up, or purchasing means you agree to these Terms and our Privacy Policy
+                    and Refund Policy on this page. If you do not agree, please do not use the website or purchase the
+                    program.</p>
+                <p>You must be at least <strong>18 years old</strong> to sign up or purchase.</p>
+
+                <h3 class="clause-title">1.2 Who we are</h3>
+                <p>Sai Sajeev Group Ltd. &middot; Edmonton, Alberta, Canada &middot; <a
+                        href="mailto:saisajeevyt@gmail.com">saisajeevyt@gmail.com</a></p>
+
+                <h3 class="clause-title">1.3 What you are buying</h3>
+                <p>The Exit is a <strong>digital education program</strong> about e-commerce and dropshipping. Depending
+                    on the offer shown at checkout, it includes:</p>
+                <ul>
+                    <li>The 28-Day System (recorded course modules, templates and resources)</li>
+                    <li>The Exit Brain, an AI assistant for course-related questions</li>
+                    <li>Access to a private Telegram community</li>
+                </ul>
+                <p><strong>1-on-1 mentorship is not included</strong> in the program. It is a separate paid program
+                    that students may apply for after completing the course.</p>
+
+                <h3 class="clause-title">1.4 Price, taxes and payment</h3>
+                <ul>
+                    <li>The total price, currency and any applicable taxes are shown on the checkout page before you
+                        pay. You will have the chance to review your order and accept or decline before payment.</li>
+                    <li>We offer one-time payment and, where available, EMI (instalment) options through third-party
+                        payment and finance providers. EMI plans are also governed by that provider's own terms.</li>
+                    <li>If an instalment payment fails or is reversed, we may pause your access until the balance is
+                        paid.</li>
+                    <li>Prices and offers may change at any time. Changes do not affect purchases already completed.</li>
+                </ul>
+
+                <h3 class="clause-title">1.5 Delivery</h3>
+                <p>Access is delivered digitally immediately or shortly after payment confirmation. You will receive
+                    login or access instructions by email or screen prompt. Check your spam folder if you do not see it
+                    within a few minutes. You are responsible for keeping a copy of any receipts or invoices you can
+                    save or print.</p>
+
+                <h3 class="clause-title">1.6 Your account</h3>
+                <ul>
+                    <li>One purchase gives access to <strong>one person</strong>. Do not share your login or access.</li>
+                    <li>Keep your login details private. You are responsible for activity on your account.</li>
+                    <li>Give accurate information when you sign up and purchase.</li>
+                </ul>
+
+                <h3 class="clause-title">1.7 Our content and your licence</h3>
+                <p>All course videos, documents, templates, recordings, community content, AI outputs and branding are
+                    owned by Sai Sajeev Group Ltd. or its licensors. You receive a <strong>personal, non-transferable,
+                        non-exclusive licence</strong> to use them for your own learning and business.</p>
+                <p>You may not copy, record, download (unless a download is provided), resell, share, publish, or create
+                    competing courses from any part of our materials.</p>
+
+                <h3 class="clause-title">1.8 Community rules</h3>
+                <ul>
+                    <li>Be respectful to other members and our team.</li>
+                    <li>No spam, advertising, recruiting or self-promotion without permission.</li>
+                    <li>Do not share other members' personal information, stores, products or results outside the
+                        community.</li>
+                    <li>Do not promote illegal, counterfeit, trademark-infringing or dangerous products or practices.
+                    </li>
+                    <li>We may remove posts or members who break these rules.</li>
+                </ul>
+
+                <h3 class="clause-title">1.9 The Exit Brain (AI assistant)</h3>
+                <ul>
+                    <li>The Exit Brain gives AI-generated answers for educational purposes. Answers can be incomplete
+                        or wrong. Check important information before acting on it.</li>
+                    <li>It does not give financial, legal, tax or investment advice.</li>
+                    <li>Do not enter passwords, card numbers, bank details, ID numbers or other sensitive personal
+                        information into the chat.</li>
+                </ul>
+
+                <h3 class="clause-title">1.10 Your responsibilities</h3>
+                <p>You are responsible for your own business, including following laws in your country, paying taxes,
+                    setting up payment accounts, ad accounts, online stores, customer service, and product quality.</p>
+
+                <h3 class="clause-title">1.11 Third-party services</h3>
+                <p>The program references third-party services such as Shopify, Meta, payment gateways, and suppliers.
+                    We do not own, control, or guarantee these services, and their terms, fees, and policies apply
+                    directly to you.</p>
+
+                <h3 class="clause-title">1.12 Changes to the program</h3>
+                <p>We continuously update course content, resources, and materials over time to keep them relevant.
+                    Modules and resources may be added, edited, or updated at our discretion.</p>
+
+                <h3 class="clause-title">1.13 No guarantee of results</h3>
+                <p>We do not guarantee that you will make any specific amount of money, profit, or success. Please see
+                    our Earnings Disclaimer below for full details.</p>
+
+                <h3 class="clause-title">1.14 Limitation of liability</h3>
+                <p>To the maximum extent permitted by applicable law, Sai Sajeev Group Ltd., its directors, officers,
+                    and contractors will not be liable for any indirect, incidental, special, consequential, or
+                    punitive damages, or loss of profits, data, or business opportunities arising from your use of the
+                    program.</p>
+
+                <h3 class="clause-title">1.15 Indemnity</h3>
+                <p>You agree to cover any claims, losses or costs we face because you broke these Terms or the law in
+                    running your business.</p>
+
+                <h3 class="clause-title">1.16 Suspension and termination</h3>
+                <p>We may suspend or end your access, without refund, if you share or resell our content, abuse the
+                    community, file a fraudulent chargeback, or seriously break these Terms.</p>
+
+                <h3 class="clause-title">1.17 Governing law</h3>
+                <p>These Terms are governed by the laws of the Province of Alberta and the federal laws of Canada that
+                    apply there. Disputes will be handled by the courts of Alberta. <strong>Nothing in these Terms
+                        removes any consumer rights you have under the laws of your own country that cannot be
+                        waived.</strong></p>
+
+                <h3 class="clause-title">1.18 Changes to these Terms</h3>
+                <p>We may update these Terms from time to time. The latest version will always be published on this page
+                    with an updated &ldquo;Last updated&rdquo; date.</p>
+
+                <a href="#nav-tabs" class="back-to-top">&uarr; Back to top</a>
+            </section>
+
+            <!-- SECTION 2: REFUND AND CANCELLATION POLICY -->
+            <section id="refunds" class="legal-section">
+                <div class="section-eyebrow">SECTION 2</div>
+                <h2 class="section-heading">Refund and Cancellation Policy</h2>
+
+                <div class="gold-callout-box">
+                    <p><strong>All sales are final. No refunds are given under any circumstances.</strong> The Exit is
+                        a digital program, and full access is delivered immediately after payment. This includes change
+                        of mind, not using the program, not getting results, not having time, or issues with
+                        third-party platforms such as ad accounts, stores or payment providers.</p>
+                </div>
+
+                <h3 class="clause-title">2.1 Before you buy</h3>
+                <p>At checkout, you will be asked to confirm that you want immediate access to the digital content and
+                    that you understand all sales are final with no refunds. If you are in the European Union or United
+                    Kingdom, you expressly waive your statutory 14-day cancellation right upon gaining immediate
+                    digital access.</p>
+
+                <h3 class="clause-title">2.2 Corrections, not refunds</h3>
+                <p>These are corrections, not refunds:</p>
+                <ul>
+                    <li>If you are charged more than once for the same order, we reverse the duplicate charge.</li>
+                    <li>If you paid but cannot access the program, contact us and we will fix your access.</li>
+                </ul>
+                <p>This policy does not affect any rights you may have under consumer laws that cannot be waived.</p>
+
+                <h3 class="clause-title">2.3 EMI and instalment plans</h3>
+                <p>Stopping instalment payments does not cancel your purchase. The remaining balance is still owed under
+                    the EMI provider's terms, and we may pause your access until it is paid.</p>
+
+                <h3 class="clause-title">2.4 How to raise an issue</h3>
+                <p>Email <a href="mailto:saisajeevyt@gmail.com">saisajeevyt@gmail.com</a> with your full name, the email
+                    used at purchase and your order ID. We will acknowledge your request.</p>
+                <p>If you file an unauthorized chargeback or payment dispute without contacting us, we may pause access
+                    and will share order records, access logs and communication with the payment provider.</p>
+
+                <a href="#nav-tabs" class="back-to-top">&uarr; Back to top</a>
+            </section>
+
+            <!-- SECTION 3: EARNINGS DISCLAIMER -->
+            <section id="earnings" class="legal-section">
+                <div class="section-eyebrow">SECTION 3</div>
+                <h2 class="section-heading">Earnings Disclaimer</h2>
+
+                <p>This website, the program and all related content &mdash; including revenue examples, dashboards,
+                    screenshots, testimonials, earnings figures and lifestyle elements &mdash; are provided for
+                    <strong>educational and inspirational purposes only</strong>.</p>
+                <ul>
+                    <li>All figures, results and outcomes shown or discussed are illustrative, self-reported by
+                        others, or based on select examples from our network or coaching circle. They are <strong>not
+                            typical, not guaranteed</strong>, and not a promise of what you will achieve.</li>
+                    <li>Results in e-commerce, dropshipping or any online business depend entirely on your own effort,
+                        skills, budget, market conditions, timing, competition and execution, and on many factors
+                        outside anyone's control.</li>
+                    <li>Past results do not guarantee future results. <strong>Most people do not achieve high
+                            earnings</strong>, and you could lose money or time.</li>
+                    <li>Running an online store requires ongoing spending on advertising, tools and platform
+                        subscriptions. Costs vary by person.</li>
+                    <li>Testimonials represent individual experiences shared with permission, not average results.</li>
+                </ul>
+
+                <div class="gold-callout-box">
+                    <p><strong>This is not financial, business, legal, tax or investment advice.</strong> Do your own
+                        research, consult qualified professionals, and only invest what you can afford to lose.</p>
+                </div>
+
+                <p style="color: var(--text-muted); font-size: 0.92rem;">The Exit is not affiliated with, endorsed by
+                    or sponsored by Meta, Instagram, Facebook, Google, YouTube, Shopify, Telegram or any other
+                    third-party platform mentioned.</p>
+
+                <a href="#nav-tabs" class="back-to-top">&uarr; Back to top</a>
+            </section>
+
+            <!-- SECTION 4: PRIVACY POLICY -->
+            <section id="privacy" class="legal-section">
+                <div class="section-eyebrow">SECTION 4</div>
+                <h2 class="section-heading">Privacy Policy</h2>
+
+                <h3 class="clause-title">4.1 Who is responsible for your data</h3>
+                <p>Sai Sajeev Group Ltd. is responsible for the personal information collected through this website and
+                    the program. Questions about privacy can be sent to our privacy contact: Sai Sajeev, <a
+                        href="mailto:saisajeevyt@gmail.com">saisajeevyt@gmail.com</a>.</p>
+
+                <h3 class="clause-title">4.2 What we collect</h3>
+                <p><strong>Information you give us:</strong></p>
+                <ul>
+                    <li>Name, email address and WhatsApp/phone number</li>
+                    <li>Answers to sign-up questions (for example your job situation, income range and goals)</li>
+                    <li>Purchase and billing details (payments are processed by our payment providers; we do not see or
+                        store your full card numbers)</li>
+                </ul>
+
+                <p><strong>Information collected automatically:</strong> device and browser type, IP address,
+                    approximate location, pages visited, video viewing progress, and information from cookies and
+                    advertising pixels (see <a href="#cookies">Cookies</a>).</p>
+
+                <h3 class="clause-title">4.3 Why we use it</h3>
+                <div class="table-responsive">
+                    <table class="legal-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 32%;">Purpose</th>
+                                <th style="width: 38%;">Information used</th>
+                                <th style="width: 30%;">Basis</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Deliver the program, community and AI assistant</td>
+                                <td>Name, email, purchase details, usage</td>
+                                <td>To perform contract with you</td>
+                            </tr>
+                            <tr>
+                                <td>Process payments and EMI plans</td>
+                                <td>Billing and payment details</td>
+                                <td>Contract</td>
+                            </tr>
+                            <tr>
+                                <td>Customer support and complaints</td>
+                                <td>Contact details, messages</td>
+                                <td>Contract; legal obligation</td>
+                            </tr>
+                            <tr>
+                                <td>Follow-up communication, sign-up answers, and showing you our ads on other platforms</td>
+                                <td>Name, contact info, sign-up answers, cookie and pixel data</td>
+                                <td>Consent; legitimate interests</td>
+                            </tr>
+                            <tr>
+                                <td>Improve the website, course and offers</td>
+                                <td>Usage and analytics data</td>
+                                <td>Legitimate interests; consent where required</td>
+                            </tr>
+                            <tr>
+                                <td>Advertising and measuring ads</td>
+                                <td>Cookie and pixel data</td>
+                                <td>Your consent where required</td>
+                            </tr>
+                            <tr>
+                                <td>Show reviews and testimonials</td>
+                                <td>Content you submit</td>
+                                <td>Your consent</td>
+                            </tr>
+                            <tr>
+                                <td>Tax, accounting, fraud prevention and legal compliance</td>
+                                <td>Purchase and transaction records</td>
+                                <td>Legal obligation; legitimate interests</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>When you sign up, you agree that we may use the information you provide for marketing purposes,
+                    including follow-up messages, offers and advertising. You can withdraw this consent at any time.</p>
+
+                <h3 class="clause-title">4.4 Marketing and consent</h3>
+                <p>We send marketing emails and WhatsApp messages only if you agree. Every message identifies us and
+                    includes a way to unsubscribe. You can withdraw consent at any time by using the unsubscribe link,
+                    replying &ldquo;STOP&rdquo; on WhatsApp, or emailing <a
+                        href="mailto:saisajeevyt@gmail.com">saisajeevyt@gmail.com</a>. We process unsubscribe requests
+                    within 10 business days. Order and access messages are still sent because they are needed to
+                    deliver what you bought.</p>
+
+                <h3 class="clause-title">4.5 Who we share it with</h3>
+                <p>We share personal information only with service providers who help us run the business, under
+                    contracts that require them to protect it:</p>
+                <ul>
+                    <li>Course hosting and checkout platforms</li>
+                    <li>Payment processors and EMI / instalment providers</li>
+                    <li>Website hosting and email / messaging providers</li>
+                    <li>Telegram (for the private community)</li>
+                    <li>AI service providers that power The Exit Brain</li>
+                </ul>
+
+                <h3 class="clause-title">4.6 Storage and transfers outside your country</h3>
+                <p>We are based in Canada, and some of our service providers are located outside Canada, including in
+                    India, the United States and other countries. Your information may be stored or processed in those
+                    countries and may be accessible to authorities there under their laws. We use reasonable safeguards
+                    when transferring information. To learn more about our service providers outside Canada, contact our
+                    privacy officer.</p>
+
+                <h3 class="clause-title">4.7 How long we keep it</h3>
+                <ul>
+                    <li><strong>Sign-up details of people who don't buy:</strong> up to 24 months after your last
+                        interaction, or until you ask us to delete them.</li>
+                    <li><strong>Student account and purchase records:</strong> while your access is active, and
+                        afterwards as long as required for tax, accounting and legal purposes.</li>
+                </ul>
+
+                <h3 class="clause-title">4.8 Security</h3>
+                <p>We use appropriate administrative, technical and physical security measures to protect your
+                    information. No system is completely secure. If a data breach creates a real risk of significant
+                    harm, we will notify you and the relevant authorities as required by law.</p>
+
+                <h3 class="clause-title">4.9 Your rights</h3>
+                <p>Depending on where you live, you can:</p>
+                <ul>
+                    <li>Ask what personal information we hold about you and get a copy</li>
+                    <li>Ask us to correct or update it</li>
+                    <li>Ask us to delete it, unless we must keep it by law</li>
+                    <li>Withdraw your consent at any time (this does not affect earlier processing)</li>
+                    <li>Object to or restrict certain processing, or ask to move your data (EU/UK)</li>
+                    <li>Nominate someone to exercise your rights if you pass away or become unable to (India)</li>
+                </ul>
+                <p><strong>Regulators you can contact:</strong> the Office of the Information and Privacy Commissioner
+                    of Alberta; the Office of the Privacy Commissioner of Canada; the Data Protection Board of India;
+                    or the data protection authority in your EU/UK country.</p>
+
+                <h3 class="clause-title">4.10 Children</h3>
+                <p>The program is only for people aged 18 and over. We do not knowingly collect information from anyone
+                    under 18. If you believe a minor has given us information, contact us and we will delete it.</p>
+
+                <h3 class="clause-title">4.11 Changes to this policy</h3>
+                <p>We may update this Privacy Policy. The latest version will always be on this page with its &ldquo;Last
+                    updated&rdquo; date.</p>
+
+                <a href="#nav-tabs" class="back-to-top">&uarr; Back to top</a>
+            </section>
+
+            <!-- SECTION 5: COOKIE POLICY -->
+            <section id="cookies" class="legal-section">
+                <div class="section-eyebrow">SECTION 5</div>
+                <h2 class="section-heading">Cookie Policy</h2>
+
+                <div class="table-responsive">
+                    <table class="legal-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 25%;">Type</th>
+                                <th style="width: 50%;">What it does</th>
+                                <th style="width: 25%;">Can you turn it off?</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Essential</strong></td>
+                                <td>Keeps the website, sign-up form and checkout working</td>
+                                <td>No &mdash; the site needs them to work</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Analytics</strong></td>
+                                <td>Shows us how visitors use the site so we can improve it</td>
+                                <td>Yes</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Advertising</strong> (such as the Meta Pixel)</td>
+                                <td>Measures our ads and shows our ads to people who visited the site</td>
+                                <td>Yes</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>If you are in the EU or UK, we ask for your consent before using analytics or advertising cookies.
+                    Everyone can block or delete cookies in their browser settings, and manage ad preferences in their
+                    Meta account settings.</p>
+
+                <a href="#nav-tabs" class="back-to-top">&uarr; Back to top</a>
+            </section>
+
+            <!-- SECTION 6: CONTACT AND GRIEVANCE DETAILS -->
+            <section id="contact" class="legal-section">
+                <div class="section-eyebrow">SECTION 6</div>
+                <h2 class="section-heading">Contact and Grievance Details</h2>
+
+                <div class="contact-cards-grid">
+                    <div class="contact-card">
+                        <div class="contact-card-title">Business Details</div>
+                        <p><strong>Sai Sajeev Group Ltd.</strong></p>
+                        <p>Brand: The Exit</p>
+                        <p>Edmonton, Alberta, Canada</p>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-card-title">Customer Support</div>
+                        <p>Email: <a href="mailto:saisajeevyt@gmail.com">saisajeevyt@gmail.com</a></p>
+                        <p>Hours: Monday &ndash; Saturday</p>
+                        <p>10 AM &ndash; 6 PM (Edmonton MT)</p>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-card-title">Grievance Officer</div>
+                        <p>Name: <strong>Sai Sajeev</strong></p>
+                        <p>Designation: Director</p>
+                        <p>Email: <a href="mailto:saisajeevyt@gmail.com">saisajeevyt@gmail.com</a></p>
+                    </div>
+                </div>
+
+                <h3 class="clause-title">How complaints are handled</h3>
+                <ul>
+                    <li>Send your complaint to the grievance officer with your name, order ID (if any) and details.</li>
+                    <li>You will receive a reference number and acknowledgement <strong>within 48 hours</strong>.</li>
+                    <li>We aim to resolve every complaint <strong>within one month</strong> of receiving it.</li>
+                </ul>
+
+                <a href="#nav-tabs" class="back-to-top">&uarr; Back to top</a>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="legal-footer">
+        <div class="footer-brand-title">THE EXIT</div>
+        <p class="footer-copy">&copy; 2026 Sai Sajeev Group Ltd. &middot; The Exit &middot; All rights reserved.</p>
+        <a href="index.html" class="footer-back-link">&larr; Return to The Exit Homepage</a>
+    </footer>
+
+    <!-- INTERACTIVE TAB HIGHLIGHT ON SCROLL SCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.nav-tab');
+            const sections = document.querySelectorAll('.legal-section');
+
+            function setActiveTab(id) {
+                tabs.forEach(tab => {
+                    const href = tab.getAttribute('href');
+                    if (href === '#' + id) {
+                        tab.classList.add('active');
+                    } else {
+                        tab.classList.remove('active');
+                    }
+                });
+            }
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setActiveTab(entry.target.id);
+                    }
+                });
+            }, {
+                rootMargin: '-20% 0px -70% 0px'
+            });
+
+            sections.forEach(sec => observer.observe(sec));
+
+            // Also handle direct hash on load
+            if (window.location.hash) {
+                const targetId = window.location.hash.substring(1);
+                setActiveTab(targetId);
+            }
+        });
+    </script>
+</body>
+
+</html>
