@@ -26,6 +26,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.seats-taken-val').forEach(el => {
         el.textContent = `${SEATS_TAKEN} / ${SEATS_TOTAL} enrolled — ${SEATS_LEFT} left`;
     });
+    const vsBatchFill = document.getElementById('vs-batch-progress-fill');
+    if (vsBatchFill) {
+        vsBatchFill.style.width = `${Math.min(100, Math.round((SEATS_TAKEN / SEATS_TOTAL) * 100))}%`;
+    }
 
     // 3. Social Proof Toast (Rotates every 12 seconds)
     const toast = document.getElementById('social-proof-toast');
@@ -379,6 +383,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function openValueModal() {
+        if (valueModal) {
+            closeAllModals();
+            valueModal.classList.add('active');
+            valueModal.scrollTop = 0;
+            const content = valueModal.querySelector('.modal-content');
+            if (content) content.scrollTop = 0;
+            document.body.classList.add('modal-open');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
     function closeAllModals() {
         if (leadModal) leadModal.classList.remove('active');
         if (valueModal) valueModal.classList.remove('active');
@@ -401,6 +417,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Check URL hash to open modal directly (e.g. #pricing or #value-stack-modal)
+    if (window.location.hash === '#pricing' || window.location.hash === '#value-stack-modal' || window.location.hash === '#value-stack') {
+        setTimeout(openValueModal, 150);
+    }
+    window.addEventListener('hashchange', () => {
+        if (window.location.hash === '#pricing' || window.location.hash === '#value-stack-modal' || window.location.hash === '#value-stack') {
+            openValueModal();
+        }
+    });
+
     // Bind review buttons
     document.querySelectorAll('.trigger-review-modal').forEach(btn => {
         btn.addEventListener('click', (e) => {
@@ -412,6 +438,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function bindModalTriggers() {
         document.querySelectorAll('button, a').forEach(el => {
+            const href = el.getAttribute('href') || '';
+            if (href === '#pricing' || href === '#value-stack-modal' || el.dataset.openModal === 'value-stack-modal') {
+                el.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openValueModal();
+                });
+                return;
+            }
+
             const text = (el.textContent || '').trim().toLowerCase();
             if (text.includes('get instant access') || text.includes('start with the 28-day system') || text.includes('get access now') || text.includes('get access →')) {
                 if (!el.classList.contains('checkout-final-link')) {

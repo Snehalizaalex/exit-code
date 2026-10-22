@@ -142,10 +142,14 @@ a {
 }
 
 .btn.large {
-    padding: 1.25rem 3rem;
-    font-size: 1.125rem;
+    padding: 1.35rem 3.5rem;
+    font-size: 1.22rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
     width: 100%;
-    max-width: 400px;
+    max-width: 480px;
+    border-radius: 6px;
+    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.38);
 }
 
 /* Navbar */
@@ -348,28 +352,34 @@ a {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 2.5rem;
-    margin-bottom: 2.5rem;
+    gap: 3.25rem;
+    margin-bottom: 2.75rem;
 }
 
 .h-stat {
     display: flex;
     align-items: center;
-    gap: 0.85rem;
+    gap: 1.15rem;
 }
 
 .h-stat-icon {
-    width: 38px;
-    height: 38px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 4px;
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.02);
-    color: #d4af37;
-    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--accent-gold);
+    font-size: 1.35rem;
     flex-shrink: 0;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.h-stat-icon svg {
+    width: 22px;
+    height: 22px;
 }
 
 .h-stat-info {
@@ -378,34 +388,36 @@ a {
 }
 
 .h-stat-val {
-    font-size: 1.35rem;
+    font-size: 1.85rem;
     font-weight: 700;
-    line-height: 1.1;
+    line-height: 1.05;
     color: #ffffff;
     font-family: var(--font-serif);
+    letter-spacing: -0.01em;
 }
 
 .h-stat-lbl {
-    font-size: 0.65rem;
+    font-size: 0.74rem;
     color: var(--text-secondary);
     text-transform: uppercase;
-    letter-spacing: 1.5px;
+    letter-spacing: 1.8px;
     font-weight: 600;
-    margin-top: 2px;
+    margin-top: 3px;
 }
 
 .hero-cta-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.15rem;
 }
 
 .hero-guarantee {
-    font-size: 0.85rem;
-    color: var(--text-secondary);
+    font-size: 0.95rem;
+    color: #a5a5a5;
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    letter-spacing: 0.3px;
 }
 
 /* How It Works (Steps) */
@@ -2066,157 +2078,515 @@ a {
     display: none;
 }
 
-/* Page 3 Value Stack Styles */
-.sticky-warning-bar {
-    background-color: var(--accent-gold);
-    color: #000;
-    font-weight: 700;
-    text-align: center;
-    padding: 0.6rem 1rem;
-    font-size: 0.9rem;
-    letter-spacing: 0.5px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.countdown-timer-box {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin: 1.5rem 0;
-}
-
-.time-unit {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    padding: 0.75rem 1rem;
-    border-radius: 8px;
-    min-width: 70px;
-}
-
-.time-val {
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: var(--accent-gold);
-    font-family: var(--font-serif);
-}
-
-.time-lbl {
-    font-size: 0.65rem;
-    color: var(--text-secondary);
-    text-transform: uppercase;
-}
-
-.seat-counter-banner {
-    background: rgba(206, 161, 89, 0.1);
-    border: 1px solid var(--border-color);
-    padding: 0.75rem 1.25rem;
-    border-radius: 8px;
-    text-align: center;
-    font-weight: 700;
-    margin-bottom: 2rem;
-}
-
-.value-item-card {
-    background: var(--bg-card);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 10px;
-    padding: 1.5rem;
-    margin-bottom: 1rem;
+/* ==========================================================================
+   Page 3 Value Stack / Checkout New Design
+   ========================================================================== */
+.value-stack-new-modal {
+    max-width: 820px !important;
+    width: 95% !important;
+    background-color: #050505 !important;
+    border: 1px solid rgba(206, 161, 89, 0.3) !important;
+    border-radius: 12px !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.95), 0 0 35px rgba(206, 161, 89, 0.12) !important;
     position: relative;
 }
 
-.value-item-card.highlight {
-    border-color: var(--accent-gold);
-    background: rgba(206, 161, 89, 0.05);
-    box-shadow: 0 0 20px rgba(206, 161, 89, 0.15);
+.value-stack-new-modal .modal-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    color: #000000;
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1;
+    z-index: 20;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.value-header {
+.value-stack-new-modal .modal-close-btn:hover {
+    transform: scale(1.15);
+    opacity: 0.8;
+}
+
+/* Sticky Top Gold Banner */
+.vs-reserved-banner {
+    background: #c89b4b;
+    color: #000000;
+    font-size: 0.84rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 0.8rem 2.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.vs-modal-body {
+    padding: 2.75rem 2.5rem 3rem;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+/* Header */
+.vs-header {
+    text-align: center;
+    margin-bottom: 2.25rem;
+}
+
+.vs-brand-label {
+    color: #c89b4b;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    margin-bottom: 1.15rem;
+}
+
+.vs-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 5.5vw, 3rem);
+    line-height: 1.12;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.015em;
+    margin: 0;
+}
+
+.vs-title-italic {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: #c89b4b;
+    font-weight: 700;
+}
+
+/* Card General */
+.vs-card {
+    background-color: #0a0a0a;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    margin-bottom: 1.25rem;
+}
+
+/* Timer Box */
+.vs-timer-card {
+    padding: 1.85rem 1.5rem 1.6rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.vs-card-subtitle {
+    color: #c89b4b;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 1.35rem;
+}
+
+.vs-countdown-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+}
+
+.vs-time-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.vs-time-digit {
+    width: 74px;
+    height: 78px;
+    background: #111111;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-serif);
+    font-size: 2.15rem;
+    font-weight: 700;
+    color: #ffffff;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.vs-time-separator {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #c89b4b;
+    line-height: 78px;
+    margin: 0 0.2rem;
+    align-self: flex-start;
+}
+
+.vs-time-label {
+    font-size: 0.65rem;
+    color: #737373;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+.vs-timer-footnote {
+    color: #737373;
+    font-size: 0.82rem;
+    margin-top: 1.15rem;
+}
+
+/* Batch Enrollment Card */
+.vs-batch-card {
+    padding: 1.25rem 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.vs-batch-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0.5rem;
 }
 
-.value-title {
-    font-size: 1.1rem;
+.vs-batch-label {
+    color: #c89b4b;
+    font-size: 0.75rem;
     font-weight: 700;
-}
-
-.value-price {
-    font-weight: 700;
-    color: var(--accent-gold);
-    font-size: 0.95rem;
-}
-
-.value-desc {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-}
-
-.flagship-badge {
-    background: var(--accent-gold);
-    color: #000;
-    font-size: 0.65rem;
-    font-weight: 800;
-    padding: 0.2rem 0.5rem;
-    border-radius: 4px;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    margin-left: 0.5rem;
 }
 
-.savings-breakdown {
-    background: var(--bg-secondary);
-    border: 1px dashed var(--border-color);
-    border-radius: 10px;
-    padding: 1.5rem;
-    margin: 2rem 0;
+.vs-batch-count {
+    color: #ffffff;
+    font-size: 0.88rem;
+    font-weight: 600;
 }
 
-.savings-row {
+.vs-batch-progress-track {
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 2px;
+    margin-top: 0.85rem;
+    overflow: hidden;
+}
+
+.vs-batch-progress-fill {
+    height: 100%;
+    background: #c89b4b;
+    border-radius: 2px;
+}
+
+/* Checklist Table Card */
+.vs-checklist-card {
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.vs-checklist-header {
     display: flex;
     justify-content: space-between;
-    font-size: 1rem;
-    margin-bottom: 0.75rem;
+    align-items: center;
+    padding: 1.15rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.015);
 }
 
-.savings-row.strikethrough span {
-    text-decoration: line-through;
-    color: var(--text-secondary);
-}
-
-.savings-row.green-save span {
-    color: #22c55e;
+.vs-cl-head-title {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
     font-weight: 700;
+    color: #ffffff;
 }
 
-.savings-row.final-pay {
-    font-size: 1.3rem;
+.vs-cl-head-val {
+    color: #c89b4b;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.vs-cl-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.05rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: background 0.2s ease;
+}
+
+.vs-cl-row:hover {
+    background: rgba(255, 255, 255, 0.015);
+}
+
+.vs-cl-flagship {
+    border-left: 2px solid #c89b4b;
+    background: rgba(200, 155, 75, 0.035);
+}
+
+.vs-cl-left {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    flex-wrap: wrap;
+}
+
+.vs-checkbox {
+    width: 19px;
+    height: 19px;
+    border: 1.5px solid #c89b4b;
+    border-radius: 3px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #c89b4b;
+    font-size: 11px;
     font-weight: 800;
-    color: var(--accent-gold);
-    margin-bottom: 0;
-    border-top: 1px solid var(--border-color);
-    padding-top: 0.75rem;
+    line-height: 1;
+    flex-shrink: 0;
+    background: transparent;
 }
 
-.emi-box {
-    border: 1px solid #22c55e;
-    background: rgba(34, 197, 94, 0.05);
-    border-radius: 10px;
-    padding: 1.25rem;
-    margin: 1.5rem 0;
+.vs-item-name {
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 600;
 }
 
-.emi-title {
-    color: #22c55e;
+.vs-flagship-badge {
+    border: 1px solid #c89b4b;
+    color: #c89b4b;
+    font-size: 0.62rem;
     font-weight: 700;
-    font-size: 1rem;
-    margin-bottom: 0.25rem;
+    letter-spacing: 0.1em;
+    padding: 2px 6px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+.vs-item-val {
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    white-space: nowrap;
+    margin-left: 1rem;
+}
+
+.vs-unlocked-text {
+    color: #737373 !important;
+    font-size: 0.84rem !important;
+    font-weight: 500 !important;
+}
+
+.vs-checklist-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    background: rgba(255, 255, 255, 0.015);
+}
+
+.vs-total-label {
+    color: #888888;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.vs-total-price {
+    font-family: var(--font-serif);
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: #f0f0f0;
+    text-decoration: line-through;
+    text-decoration-color: #888888;
+    text-decoration-thickness: 1.5px;
+}
+
+/* Today's Price Box */
+.vs-pricing-box {
+    border: 1px solid rgba(200, 155, 75, 0.45);
+    border-radius: 10px;
+    background: #090909;
+    padding: 2.5rem 1.75rem 2.25rem;
+    text-align: center;
+    margin-top: 1.5rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+}
+
+.vs-pricing-eyebrow {
+    color: #c89b4b;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin-bottom: 0.85rem;
+}
+
+.vs-pricing-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 5vw, 2.6rem);
+    line-height: 1.15;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 2rem;
+}
+
+.vs-cta-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto 1.85rem;
+    padding: 1.15rem 2rem;
+    background: linear-gradient(180deg, #d8ac58, #b8862d);
+    color: #000000;
+    font-size: 0.98rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(200, 155, 75, 0.35);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.vs-cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 45px rgba(200, 155, 75, 0.55);
+    filter: brightness(1.08);
+}
+
+.vs-cta-btn:active {
+    transform: translateY(0);
+}
+
+.vs-payment-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.85rem;
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+.vs-pay-card {
+    padding: 1.15rem 1rem;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.vs-card-onetime {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.vs-card-emi {
+    background: rgba(34, 197, 94, 0.04);
+    border: 1px solid rgba(34, 197, 94, 0.7);
+}
+
+.vs-pay-title {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 0.35rem;
+}
+
+.emi-title-green {
+    color: #22c55e !important;
+}
+
+.vs-pay-desc {
+    color: #888888;
+    font-size: 0.8rem;
+}
+
+.vs-payment-gateways {
+    color: #737373;
+    font-size: 0.82rem;
+    margin-top: 1.5rem;
+}
+
+/* Disclaimer */
+.vs-disclaimer {
+    margin-top: 2.25rem;
+    padding-top: 0.5rem;
+}
+
+.vs-disclaimer p {
+    color: #666666;
+    font-size: 0.75rem;
+    line-height: 1.65;
+    text-align: left;
+}
+
+.vs-disclaimer strong {
+    color: #888888;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 600px) {
+    .vs-modal-body {
+        padding: 2rem 1.15rem 2.25rem;
+    }
+
+    .vs-reserved-banner {
+        font-size: 0.72rem;
+        padding: 0.7rem 1.8rem;
+    }
+
+    .vs-time-digit {
+        width: 58px;
+        height: 64px;
+        font-size: 1.7rem;
+    }
+
+    .vs-time-separator {
+        font-size: 1.5rem;
+        line-height: 64px;
+    }
+
+    .vs-time-label {
+        font-size: 0.55rem;
+    }
+
+    .vs-cl-row {
+        padding: 0.9rem 1rem;
+    }
+
+    .vs-checklist-header, .vs-checklist-footer {
+        padding: 1rem;
+    }
+
+    .vs-item-name {
+        font-size: 0.88rem;
+    }
+
+    .vs-item-val {
+        font-size: 0.88rem;
+    }
+
+    .vs-pricing-box {
+        padding: 2rem 1.15rem 1.75rem;
+    }
+
+    .vs-payment-features {
+        grid-template-columns: 1fr;
+        gap: 0.65rem;
+    }
 }
 
 .global-legal-disclaimer {
@@ -2453,8 +2823,8 @@ a {
         flex-direction: column;
         align-items: center;
         text-align: center;
-        padding: 0.65rem 0.35rem;
-        gap: 0.35rem;
+        padding: 0.85rem 0.45rem;
+        gap: 0.45rem;
         background: rgba(14, 14, 14, 0.82);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
@@ -2464,10 +2834,10 @@ a {
     }
 
     .h-stat-icon {
-        width: 32px;
-        height: 32px;
+        width: 38px;
+        height: 38px;
         border-radius: 6px;
-        font-size: 0.9rem;
+        font-size: 1.05rem;
     }
 
     .h-stat-info {
@@ -2475,25 +2845,25 @@ a {
     }
 
     .h-stat-val {
-        font-size: 1.15rem;
+        font-size: 1.35rem;
         line-height: 1.1;
         color: #ffffff;
     }
 
     .h-stat-lbl {
-        font-size: 0.58rem;
-        letter-spacing: 0.8px;
+        font-size: 0.64rem;
+        letter-spacing: 1px;
         margin-top: 2px;
         color: var(--text-secondary);
     }
 
     .hero-cta-wrapper {
-        gap: 0.65rem;
+        gap: 0.85rem;
         width: 100%;
     }
 
     .hero-guarantee {
-        font-size: 0.78rem;
+        font-size: 0.88rem;
         justify-content: center;
         text-align: center;
     }

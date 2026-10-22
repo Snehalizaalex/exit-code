@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -7,14 +8,17 @@
     <meta name="description" content="The step-by-step system to sell internationally — from anywhere in India.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <link rel="icon" type="image/png" href="exit logo new oneee.png">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <!-- Particles Background -->
     <div id="particles-bg" class="particles-container"></div>
-    
+
     <!-- Header / Navbar -->
     <nav class="navbar">
         <div class="nav-container">
@@ -23,7 +27,8 @@
                 <span class="logo-text">The Exit</span>
             </a>
             <div class="nav-right">
-                <div class="nav-spots"><span class="pulse-dot"></span> <span class="seats-counter-val">26 spots left in this batch</span></div>
+                <div class="nav-spots"><span class="pulse-dot"></span> <span class="seats-counter-val">26 spots left in
+                        this batch</span></div>
             </div>
         </div>
         <div class="nav-border"></div>
@@ -38,12 +43,34 @@
                     The 28 Days AI System<br>
                     To Make <span class="title-italic">₹1 Lakh/Month</span>
                 </h1>
-                
+
                 <p class="hero-subtitle">
                     <strong>No experience. No prior skills. Fully AI automated.</strong>
-                    <span class="text-secondary">The step-by-step system to sell internationally &mdash; from anywhere in India.</span>
                 </p>
-                
+
+                <!-- VIDEO SECTION (UPPER) -->
+                <div class="video-wrapper"
+                    style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem; margin: 1.5rem 0 2.25rem; width: 100%;">
+                    <div id="video-container-box" class="video-container"
+                        style="width: 100%; max-width: 900px; aspect-ratio: 16/9; background-color: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+                        <div class="video-overlay"
+                            style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; width: 100%; height: 100%; cursor: pointer;"
+                            id="play-vsl-btn">
+                            <button class="play-btn"
+                                style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light)); color: #000; border: none; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s;">
+                                <svg viewBox="0 0 24 24" fill="currentColor"
+                                    style="width: 30px; height: 30px; margin-left: 5px;">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                            </button>
+                            <p class="video-caption"
+                                style="font-size: 0.85rem; letter-spacing: 2px; color: var(--text-secondary); text-transform: uppercase;">
+                                Watch This First</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONTENT DOWN: STATS & CTA -->
                 <div class="hero-stats">
                     <div class="h-stat">
                         <div class="h-stat-icon">★</div>
@@ -54,7 +81,8 @@
                     </div>
                     <div class="h-stat">
                         <div class="h-stat-icon">
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
                                 <rect x="3" y="3" width="18" height="18" rx="1" ry="1"></rect>
                                 <rect x="8" y="8" width="8" height="8"></rect>
                             </svg>
@@ -66,7 +94,8 @@
                     </div>
                     <div class="h-stat">
                         <div class="h-stat-icon">
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
                                 <circle cx="12" cy="12" r="9"></circle>
                                 <circle cx="12" cy="12" r="3" fill="currentColor"></circle>
                             </svg>
@@ -86,74 +115,7 @@
         </div>
     </header>
 
-    <!-- VIDEO SECTION -->
-    <section class="video-section section" style="padding-top: 1rem;">
-        <div class="container">
-            <div class="video-wrapper fade-up" style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
-                <div id="video-container-box" class="video-container" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; background-color: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-                    <div class="video-overlay" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; width: 100%; height: 100%; cursor: pointer;" id="play-vsl-btn">
-                        <button class="play-btn" style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light)); color: #000; border: none; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s;">
-                            <svg viewBox="0 0 24 24" fill="currentColor" style="width: 30px; height: 30px; margin-left: 5px;">
-                                <path d="M8 5v14l11-7z" />
-                            </svg>
-                        </button>
-                        <p class="video-caption" style="font-size: 0.85rem; letter-spacing: 2px; color: var(--text-secondary); text-transform: uppercase;">Watch This First</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- SCROLLING TICKER -->
-    <div class="ticker-wrap">
-        <div style="background:var(--accent-gold); color:#000; font-weight:800; font-size:0.75rem; padding:0 1.25rem; height:100%; display:flex; align-items:center; text-transform:uppercase; letter-spacing:1px; flex-shrink:0;">Recent</div>
-        <div class="ticker">
-            <div class="ticker-item">Vishnu quit his 9–5 &middot; Dubai</div>
-            <div class="ticker-sep">&#9670;</div>
-            <div class="ticker-item">Haripriya V. just got access</div>
-            <div class="ticker-sep">&#9670;</div>
-            <div class="ticker-item">Arun started earning in 12 days</div>
-            <div class="ticker-sep">&#9670;</div>
-            <div class="ticker-item">Neha hit ₹67K week one</div>
-            <div class="ticker-sep">&#9670;</div>
-            <div class="ticker-item">Sreejith scaled to ₹2L/month</div>
-            <div class="ticker-sep">&#9670;</div>
-            <div class="ticker-item">Devika just enrolled &middot; Kozhikode</div>
-            <!-- Duplicate loop -->
-            <div class="ticker-sep">&#9670;</div>
-            <div class="ticker-item">Vishnu quit his 9–5 &middot; Dubai</div>
-            <div class="ticker-sep">&#9670;</div>
-            <div class="ticker-item">Haripriya V. just got access</div>
-            <div class="ticker-sep">&#9670;</div>
-            <div class="ticker-item">Arun started earning in 12 days</div>
-            <div class="ticker-sep">&#9670;</div>
-            <div class="ticker-item">Neha hit ₹67K week one</div>
-            <div class="ticker-sep">&#9670;</div>
-            <div class="ticker-item">Sreejith scaled to ₹2L/month</div>
-            <div class="ticker-sep">&#9670;</div>
-            <div class="ticker-item">Devika just enrolled &middot; Kozhikode</div>
-        </div>
-    </div>
-
-    <!-- STAT BAND -->
-    <section class="stats-grid-section section" style="padding: 4rem 0;">
-        <div class="container">
-            <div class="stats-grid-wrapper fade-up">
-                <div class="grid-stat-box">
-                    <div class="grid-stat-val text-gold">4.9</div>
-                    <div class="grid-stat-lbl">AVERAGE RATING</div>
-                </div>
-                <div class="grid-stat-box">
-                    <div class="grid-stat-val text-gold">28</div>
-                    <div class="grid-stat-lbl">DAY SYSTEM</div>
-                </div>
-                <div class="grid-stat-box">
-                    <div class="grid-stat-val text-gold">AI</div>
-                    <div class="grid-stat-lbl">FULLY AUTOMATED</div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- HOW YOU MAKE MONEY SECTION (AI Middleman) -->
     <section class="how-it-works section">
@@ -163,15 +125,17 @@
                 How You Make Money.<br>
                 <span class="title-italic text-gold">Without Touching Anything.</span>
             </h2>
-            <p class="sub-text fade-up">Watch the whole process. Thirty seconds to understand what most people never figure out.</p>
+            <p class="sub-text fade-up">Watch the whole process. Thirty seconds to understand what most people never
+                figure out.</p>
 
             <!-- Process Visualization Box -->
             <div class="process-box fade-up">
                 <div class="process-header">
                     <div class="process-step-counter" id="process-step-counter">STEP 1 OF 4</div>
                     <button class="process-replay-btn" id="process-replay-btn">
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align: -1px; margin-right: 5px;">
-                            <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" style="vertical-align: -1px; margin-right: 5px;">
+                            <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67" />
                         </svg>
                         REPLAY
                     </button>
@@ -181,7 +145,7 @@
                 <div class="process-diagram-wrapper">
                     <!-- Horizontal Track Line -->
                     <div class="process-track-line"></div>
-                    
+
                     <!-- Animated Moving Package -->
                     <div class="moving-package" id="moving-package" title="Package in transit">
                         <div class="package-card">
@@ -198,27 +162,36 @@
                                 <svg class="p-svg-icon" width="36" height="36" viewBox="0 0 24 24" fill="none">
                                     <defs>
                                         <linearGradient id="gold-globe-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                            <stop offset="0%" stop-color="#fff1bd"/>
-                                            <stop offset="40%" stop-color="#e5be7a"/>
-                                            <stop offset="75%" stop-color="#CEA159"/>
-                                            <stop offset="100%" stop-color="#916c28"/>
+                                            <stop offset="0%" stop-color="#fff1bd" />
+                                            <stop offset="40%" stop-color="#e5be7a" />
+                                            <stop offset="75%" stop-color="#CEA159" />
+                                            <stop offset="100%" stop-color="#916c28" />
                                         </linearGradient>
                                         <radialGradient id="gold-globe-glow" cx="40%" cy="40%" r="65%">
-                                            <stop offset="0%" stop-color="rgba(249, 217, 118, 0.22)"/>
-                                            <stop offset="60%" stop-color="rgba(206, 161, 89, 0.08)"/>
-                                            <stop offset="100%" stop-color="rgba(10, 8, 4, 0.95)"/>
+                                            <stop offset="0%" stop-color="rgba(249, 217, 118, 0.22)" />
+                                            <stop offset="60%" stop-color="rgba(206, 161, 89, 0.08)" />
+                                            <stop offset="100%" stop-color="rgba(10, 8, 4, 0.95)" />
                                         </radialGradient>
                                     </defs>
                                     <!-- Outer Sphere -->
-                                    <circle cx="12" cy="12" r="9.5" fill="url(#gold-globe-glow)" stroke="url(#gold-globe-grad)" stroke-width="1.3"/>
+                                    <circle cx="12" cy="12" r="9.5" fill="url(#gold-globe-glow)"
+                                        stroke="url(#gold-globe-grad)" stroke-width="1.3" />
                                     <!-- Latitude / Longitude Rings -->
-                                    <ellipse cx="12" cy="12" rx="4.2" ry="9.5" stroke="url(#gold-globe-grad)" stroke-width="1" fill="none" opacity="0.55"/>
-                                    <line x1="2.5" y1="12" x2="21.5" y2="12" stroke="url(#gold-globe-grad)" stroke-width="1.1" opacity="0.75"/>
-                                    <path d="M4.5 7.2 C7.5 8.8 16.5 8.8 19.5 7.2" stroke="url(#gold-globe-grad)" stroke-width="0.9" fill="none" opacity="0.5"/>
-                                    <path d="M4.5 16.8 C7.5 15.2 16.5 15.2 19.5 16.8" stroke="url(#gold-globe-grad)" stroke-width="0.9" fill="none" opacity="0.5"/>
+                                    <ellipse cx="12" cy="12" rx="4.2" ry="9.5" stroke="url(#gold-globe-grad)"
+                                        stroke-width="1" fill="none" opacity="0.55" />
+                                    <line x1="2.5" y1="12" x2="21.5" y2="12" stroke="url(#gold-globe-grad)"
+                                        stroke-width="1.1" opacity="0.75" />
+                                    <path d="M4.5 7.2 C7.5 8.8 16.5 8.8 19.5 7.2" stroke="url(#gold-globe-grad)"
+                                        stroke-width="0.9" fill="none" opacity="0.5" />
+                                    <path d="M4.5 16.8 C7.5 15.2 16.5 15.2 19.5 16.8" stroke="url(#gold-globe-grad)"
+                                        stroke-width="0.9" fill="none" opacity="0.5" />
                                     <!-- Continental Silhouette in Gold -->
-                                    <path d="M5.5 11.5c.3-1.8 1.4-2.8 2.5-2.2.8.4 1 1.8 2 2.2.9.3 1.8-.3 2.5.4.6.7.3 1.8-.4 2.2-.8.5-1.2 1.3-.8 2.2.3.7 1 .8 1.3 1.4C10.5 18.5 5.5 15.8 5.5 11.5z" fill="url(#gold-globe-grad)" opacity="0.85"/>
-                                    <path d="M15 5.5c.8.6 1.4 1.5 1.7 2.6-.6.3-1.4 0-1.7.6s.3 1.4-.2 2c-.6.6-1.1.3-1.4.8-.3.6.3 1.5 1.1 2.1 1.4-.7 2.4-2.3 2.4-4.4 0-1.4-.6-2.6-1.9-3.7z" fill="url(#gold-globe-grad)" opacity="0.85"/>
+                                    <path
+                                        d="M5.5 11.5c.3-1.8 1.4-2.8 2.5-2.2.8.4 1 1.8 2 2.2.9.3 1.8-.3 2.5.4.6.7.3 1.8-.4 2.2-.8.5-1.2 1.3-.8 2.2.3.7 1 .8 1.3 1.4C10.5 18.5 5.5 15.8 5.5 11.5z"
+                                        fill="url(#gold-globe-grad)" opacity="0.85" />
+                                    <path
+                                        d="M15 5.5c.8.6 1.4 1.5 1.7 2.6-.6.3-1.4 0-1.7.6s.3 1.4-.2 2c-.6.6-1.1.3-1.4.8-.3.6.3 1.5 1.1 2.1 1.4-.7 2.4-2.3 2.4-4.4 0-1.4-.6-2.6-1.9-3.7z"
+                                        fill="url(#gold-globe-grad)" opacity="0.85" />
                                 </svg>
                             </div>
                             <div class="p-node-title">Customer</div>
@@ -231,22 +204,22 @@
                                 <svg class="p-svg-icon" width="34" height="34" viewBox="0 0 24 24" fill="none">
                                     <defs>
                                         <linearGradient id="gold-you-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                            <stop offset="0%" stop-color="#fff6d6"/>
-                                            <stop offset="35%" stop-color="#f9d976"/>
-                                            <stop offset="70%" stop-color="#CEA159"/>
-                                            <stop offset="100%" stop-color="#9a7229"/>
+                                            <stop offset="0%" stop-color="#fff6d6" />
+                                            <stop offset="35%" stop-color="#f9d976" />
+                                            <stop offset="70%" stop-color="#CEA159" />
+                                            <stop offset="100%" stop-color="#9a7229" />
                                         </linearGradient>
                                         <radialGradient id="gold-you-ambiance" cx="50%" cy="40%" r="55%">
-                                            <stop offset="0%" stop-color="rgba(206, 161, 89, 0.25)"/>
-                                            <stop offset="100%" stop-color="transparent"/>
+                                            <stop offset="0%" stop-color="rgba(206, 161, 89, 0.25)" />
+                                            <stop offset="100%" stop-color="transparent" />
                                         </radialGradient>
                                     </defs>
                                     <!-- Golden Backlight -->
-                                    <circle cx="12" cy="12" r="10" fill="url(#gold-you-ambiance)"/>
+                                    <circle cx="12" cy="12" r="10" fill="url(#gold-you-ambiance)" />
                                     <!-- Head -->
-                                    <circle cx="12" cy="7.5" r="4.2" fill="url(#gold-you-grad)"/>
+                                    <circle cx="12" cy="7.5" r="4.2" fill="url(#gold-you-grad)" />
                                     <!-- Torso -->
-                                    <path d="M4 19.8c0-4.2 3.8-6.5 8-6.5s8 2.3 8 6.5" fill="url(#gold-you-grad)"/>
+                                    <path d="M4 19.8c0-4.2 3.8-6.5 8-6.5s8 2.3 8 6.5" fill="url(#gold-you-grad)" />
                                 </svg>
                                 <span class="ai-badge-corner">AI</span>
                             </div>
@@ -260,20 +233,23 @@
                                 <svg class="p-svg-icon" width="36" height="36" viewBox="0 0 24 24" fill="none">
                                     <defs>
                                         <linearGradient id="gold-factory-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                            <stop offset="0%" stop-color="#fff1bd"/>
-                                            <stop offset="45%" stop-color="#f9d976"/>
-                                            <stop offset="80%" stop-color="#CEA159"/>
-                                            <stop offset="100%" stop-color="#946e29"/>
+                                            <stop offset="0%" stop-color="#fff1bd" />
+                                            <stop offset="45%" stop-color="#f9d976" />
+                                            <stop offset="80%" stop-color="#CEA159" />
+                                            <stop offset="100%" stop-color="#946e29" />
                                         </linearGradient>
                                     </defs>
                                     <!-- Factory Silhouette in Gold -->
-                                    <path d="M2 21h20M4 21V11l6 3.5V11l6 3.5V7h4v14" stroke="url(#gold-factory-grad)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="rgba(206, 161, 89, 0.16)"/>
+                                    <path d="M2 21h20M4 21V11l6 3.5V11l6 3.5V7h4v14" stroke="url(#gold-factory-grad)"
+                                        stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                                        fill="rgba(206, 161, 89, 0.16)" />
                                     <!-- Chimneys in Gold -->
-                                    <path d="M18 3.5v3.5M15 4.5v2.5" stroke="url(#gold-factory-grad)" stroke-width="1.6" stroke-linecap="round"/>
+                                    <path d="M18 3.5v3.5M15 4.5v2.5" stroke="url(#gold-factory-grad)" stroke-width="1.6"
+                                        stroke-linecap="round" />
                                     <!-- Windows in Gold -->
-                                    <circle cx="7" cy="18" r="1.1" fill="url(#gold-factory-grad)"/>
-                                    <circle cx="12" cy="18" r="1.1" fill="url(#gold-factory-grad)"/>
-                                    <circle cx="17" cy="18" r="1.1" fill="url(#gold-factory-grad)"/>
+                                    <circle cx="7" cy="18" r="1.1" fill="url(#gold-factory-grad)" />
+                                    <circle cx="12" cy="18" r="1.1" fill="url(#gold-factory-grad)" />
+                                    <circle cx="17" cy="18" r="1.1" fill="url(#gold-factory-grad)" />
                                 </svg>
                             </div>
                             <div class="p-node-title">Supplier</div>
@@ -284,7 +260,8 @@
                     <!-- Arched Curved Connecting Line -->
                     <div class="process-arc-container">
                         <svg class="process-arc-svg" viewBox="0 0 680 65" preserveAspectRatio="none">
-                            <path d="M 60 8 Q 340 64 620 8" fill="none" stroke="rgba(206, 161, 89, 0.45)" stroke-dasharray="6, 6" stroke-width="1.8" />
+                            <path d="M 60 8 Q 340 64 620 8" fill="none" stroke="rgba(206, 161, 89, 0.45)"
+                                stroke-dasharray="6, 6" stroke-width="1.8" />
                         </svg>
                         <div class="arc-shipping-label">
                             SHIPS DIRECTLY TO CUSTOMER &mdash; YOU NEVER TOUCH IT
@@ -312,7 +289,8 @@
                         <div class="profit-val text-gold">₹2,700</div>
                     </div>
                 </div>
-                <div class="profit-note">Example figures for illustration only. Actual margins vary by product, market and ad spend.</div>
+                <div class="profit-note">Example figures for illustration only. Actual margins vary by product, market
+                    and ad spend.</div>
             </div>
         </div>
     </section>
@@ -325,7 +303,7 @@
                 Real People.<br>
                 <span class="title-italic text-gold">Real Money.</span>
             </h2>
-            
+
             <!-- The Exit Testimonials Showcase Frame (Format matching Image 2) -->
             <div class="exit-results-frame fade-up">
                 <!-- Frame Header -->
@@ -356,7 +334,8 @@
                                     Akhil
                                     <span class="exit-verified-tag">
                                         <svg viewBox="0 0 24 24" fill="currentColor">
-                                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                            <path
+                                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
                                         </svg>
                                         Verified
                                     </span>
@@ -386,7 +365,8 @@
                                     Jithin
                                     <span class="exit-verified-tag">
                                         <svg viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                            <path
+                                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
                                         </svg>
                                         Verified
                                     </span>
@@ -416,7 +396,8 @@
                                     Muhammed Shibil
                                     <span class="exit-verified-tag">
                                         <svg viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                            <path
+                                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
                                         </svg>
                                         Verified
                                     </span>
@@ -428,7 +409,8 @@
                         </div>
                         <div class="exit-review-quote">6 മാസം 🔥🔥🔥 Slow &amp; Steady 😜</div>
                         <div class="exit-proof-img-wrap" data-caption="Muhammed Shibil — $30,712.20 Sales Proof">
-                            <img src="6-months-steady.png" alt="6 months slow and steady - $30,712.20 Sales" loading="lazy">
+                            <img src="6-months-steady.png" alt="6 months slow and steady - $30,712.20 Sales"
+                                loading="lazy">
                         </div>
                     </div>
 
@@ -446,7 +428,8 @@
                                     Ebin Thomas
                                     <span class="exit-verified-tag">
                                         <svg viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                            <path
+                                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
                                         </svg>
                                         Verified
                                     </span>
@@ -457,13 +440,17 @@
                             </div>
                         </div>
                         <div class="exit-review-text-block">
-                            <p>ഞാൻ ഈ profit ഉണ്ടാക്കിയത് ഒരു വർഷം കൊണ്ടാണ്. ഇതിന് ee Mentorship program എന്നെ ഒരുപാട് help ചെയ്തിട്ടുണ്ട്. മാസം ₹17,000 salary കിട്ടുന്ന ജോലിയായിരുന്നു ചെയ്തിരുന്നത്.</p>
-                            <p>6 മാസത്തിലധികം ഞാൻ one-on-one coaching sessions ചെയ്തു. നല്ല രീതിയിൽ prepare ചെയ്തു. കുറച്ച് money save ചെയ്തു, then invest ചെയ്തു.</p>
+                            <p>ഞാൻ ഈ profit ഉണ്ടാക്കിയത് ഒരു വർഷം കൊണ്ടാണ്. ഇതിന് ee Mentorship program എന്നെ ഒരുപാട്
+                                help ചെയ്തിട്ടുണ്ട്. മാസം ₹17,000 salary കിട്ടുന്ന ജോലിയായിരുന്നു ചെയ്തിരുന്നത്.</p>
+                            <p>6 മാസത്തിലധികം ഞാൻ one-on-one coaching sessions ചെയ്തു. നല്ല രീതിയിൽ prepare ചെയ്തു.
+                                കുറച്ച് money save ചെയ്തു, then invest ചെയ്തു.</p>
                             <p>ഇത് എൻ്റെ life-ലെ തന്നെ ഒരു life-changing moment ആയിരുന്നു.</p>
                             <p>Thank you so much bro. worth it.</p>
                         </div>
-                        <div class="exit-proof-img-wrap" data-caption="Ebin Thomas — Total Sales $157,400 Net Profit $35,000">
-                            <img src="ebin-proof.png" alt="Ebin Thomas Profit Proof - Total Sales $157,400 Net Profit $35,000" loading="lazy">
+                        <div class="exit-proof-img-wrap"
+                            data-caption="Ebin Thomas — Total Sales $157,400 Net Profit $35,000">
+                            <img src="ebin-proof.png"
+                                alt="Ebin Thomas Profit Proof - Total Sales $157,400 Net Profit $35,000" loading="lazy">
                         </div>
                     </div>
 
@@ -481,7 +468,8 @@
                                     Sreerag
                                     <span class="exit-verified-tag">
                                         <svg viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                            <path
+                                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
                                         </svg>
                                         Verified
                                     </span>
@@ -511,7 +499,8 @@
                                     Adarsh K
                                     <span class="exit-verified-tag">
                                         <svg viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                            <path
+                                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
                                         </svg>
                                         Verified
                                     </span>
@@ -541,7 +530,8 @@
                                     Fahad
                                     <span class="exit-verified-tag">
                                         <svg viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                            <path
+                                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
                                         </svg>
                                         Verified
                                     </span>
@@ -551,9 +541,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="exit-review-quote">11 orders കിട്ടി, store നല്ല രീതിയിൽ grow ചെയ്യുന്നുണ്ട്. 😍😍❤️</div>
+                        <div class="exit-review-quote">11 orders കിട്ടി, store നല്ല രീതിയിൽ grow ചെയ്യുന്നുണ്ട്. 😍😍❤️
+                        </div>
                         <div class="exit-proof-img-wrap" data-caption="Fahad — 11 Orders Total Sales €1,979.71">
-                            <img src="fahad-proof.png" alt="Fahad Proof - 11 Orders Total Sales €1,979.71" loading="lazy">
+                            <img src="fahad-proof.png" alt="Fahad Proof - 11 Orders Total Sales €1,979.71"
+                                loading="lazy">
                         </div>
                     </div>
 
@@ -571,7 +563,8 @@
                                     Vishnu Prasad
                                     <span class="exit-verified-tag">
                                         <svg viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                            <path
+                                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
                                         </svg>
                                         Verified
                                     </span>
@@ -601,7 +594,8 @@
                                     Anjana
                                     <span class="exit-verified-tag">
                                         <svg viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                            <path
+                                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
                                         </svg>
                                         Verified
                                     </span>
@@ -613,7 +607,8 @@
                         </div>
                         <div class="exit-review-quote">30 days-il $15k cross cheythu 🔥❤️</div>
                         <div class="exit-proof-img-wrap" data-caption="Anjana — Total Sales $15,257 in 30 days">
-                            <img src="anjana-proof.png" alt="Anjana Proof - Total Sales $15,257 in 30 days" loading="lazy">
+                            <img src="anjana-proof.png" alt="Anjana Proof - Total Sales $15,257 in 30 days"
+                                loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -624,14 +619,15 @@
                         <button class="btn btn-primary exit-frame-cta-btn trigger-lead-modal">GET ACCESS &rarr;</button>
                         <button class="btn btn-review-outline trigger-review-modal" id="footer-review-btn">
                             <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                                <path
+                                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
                             </svg>
                             Leave a Review
                         </button>
                     </div>
                 </div>
             </div>
-            </div>
+        </div>
         </div>
     </section>
 
@@ -644,10 +640,13 @@
                 1-on-1 With Me.<br>
                 <span class="title-italic text-gold">Build & Scale Together.</span>
             </h2>
-            <p class="sub-text fade-up">Once you've completed the 28-day system, a separate 1-on-1 mentorship program opens up. We work together directly on Google Meet &mdash; building your store, fixing your ads, scaling your numbers. Not a group call. Just me and you.</p>
-            
+            <p class="sub-text fade-up">Once you've completed the 28-day system, a separate 1-on-1 mentorship program
+                opens up. We work together building your store, fixing your ads, scaling your numbers. Not a group call.
+                Just me and you.</p>
+
             <p class="hero-guarantee fade-up" style="margin-bottom: 2rem; max-width: 650px;">
-                &#9888;&#65039; Not included in this purchase. This is a separate upgrade you can apply for after completing the course. Mentioned here so you know the path exists.
+                &#9888;&#65039; Not included in this purchase. This is a separate upgrade you can apply for after
+                completing the course. Mentioned here so you know the path exists.
             </p>
 
             <div class="action-buttons fade-up">
@@ -655,7 +654,7 @@
             </div>
 
             <div class="chips-wrapper fade-up">
-                <span class="chip">1-on-1 Google Meet</span>
+                <span class="chip">1-on-1 Sessions</span>
                 <span class="chip">Live Store Review</span>
                 <span class="chip">Build Your Store Together</span>
                 <span class="chip">Scale to ₹1CR+ in Revenue</span>
@@ -671,10 +670,10 @@
                 My Journey.<br>
                 <span class="title-italic text-gold">Your Proof.</span>
             </h2>
-            
+
             <div class="journey-timeline">
                 <div class="j-timeline-line"></div>
-                
+
                 <div class="j-item fade-up">
                     <div class="j-dot"></div>
                     <div class="j-content">
@@ -682,11 +681,13 @@
                             <img src="IMG_7739.PNG" alt="My First Winning Product" loading="lazy">
                         </div>
                         <h3 class="j-title">My First Winning Product</h3>
-                        <p class="j-desc">One store, one product, four months &mdash; built entirely with zero paid ads. That first win proved the model worked, and it became the foundation of everything I teach now.</p>
+                        <p class="j-desc">One store, one product, four months &mdash; built entirely with zero paid ads.
+                            That first win proved the model worked, and it became the foundation of everything I teach
+                            now.</p>
                         <div class="j-label">Zero Ad Spend</div>
                     </div>
                 </div>
-                
+
                 <div class="j-item fade-up delay-1">
                     <div class="j-dot"></div>
                     <div class="j-content">
@@ -694,11 +695,13 @@
                             <img src="IMG_7741.PNG" alt="Scaled Multiple Stores to ₹1CR+" loading="lazy">
                         </div>
                         <h3 class="j-title">Scaled Multiple Stores to ₹1CR+</h3>
-                        <p class="j-desc">Once the model was proven, I replicated it again and again. Multiple stores, scaled to ₹1 crore+ in revenue &mdash; using the exact same system I now teach, refined with every launch.</p>
+                        <p class="j-desc">Once the model was proven, I replicated it again and again. Multiple stores,
+                            scaled to ₹1 crore+ in revenue &mdash; using the exact same system I now teach, refined with
+                            every launch.</p>
                         <div class="j-label">Multiple Stores &middot; ₹1CR+ Revenue</div>
                     </div>
                 </div>
-                
+
                 <div class="j-item fade-up delay-2">
                     <div class="j-dot"></div>
                     <div class="j-content">
@@ -706,11 +709,13 @@
                             <img src="IMG_7695.PNG" alt="Turned It Into a 28-Day System" loading="lazy">
                         </div>
                         <h3 class="j-title">Turned It Into a 28-Day System</h3>
-                        <p class="j-desc">Everything I learned building those stores &mdash; product research, suppliers, ads, AI automation &mdash; I documented into a 28-day step-by-step system. The same process, nothing held back.</p>
+                        <p class="j-desc">Everything I learned building those stores &mdash; product research,
+                            suppliers, ads, AI automation &mdash; I documented into a 28-day step-by-step system. The
+                            same process, nothing held back.</p>
                         <div class="j-label">The Blueprint</div>
                     </div>
                 </div>
-                
+
                 <div class="j-item fade-up delay-3">
                     <div class="j-dot"></div>
                     <div class="j-content">
@@ -718,7 +723,9 @@
                             <img src="IMG_7696.PNG" alt="I Still Run Stores Every Single Day" loading="lazy">
                         </div>
                         <h3 class="j-title">I Still Run Stores Every Single Day</h3>
-                        <p class="j-desc">I don't just teach this. I run it. Live stores, live ads, live numbers &mdash; every day. That's why the system stays current while everyone else teaches what worked three years ago.</p>
+                        <p class="j-desc">I don't just teach this. I run it. Live stores, live ads, live numbers &mdash;
+                            every day. That's why the system stays current while everyone else teaches what worked three
+                            years ago.</p>
                         <div class="j-label">Today</div>
                     </div>
                 </div>
@@ -758,7 +765,7 @@
                 Still Have<br>
                 <span class="title-italic text-gold">Questions?</span>
             </h2>
-            
+
             <div class="faq-list fade-up">
                 <div class="faq-item">
                     <button class="faq-question">
@@ -766,7 +773,9 @@
                         <span class="icon">+</span>
                     </button>
                     <div class="faq-answer">
-                        <p>Neither. You get paid before you pay your supplier, so there's no upfront inventory cost. And the system is built for complete beginners &mdash; most students started with zero experience.</p>
+                        <p>Neither. You get paid before you pay your supplier, so there's no upfront inventory cost. And
+                            the system is built for complete beginners &mdash; most students started with zero
+                            experience.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -775,7 +784,9 @@
                         <span class="icon">+</span>
                     </button>
                     <div class="faq-answer">
-                        <p>Students who follow the system consistently typically see their first sale within 2–3 weeks. The 28-day system is designed to build toward a ₹1 lakh/month store. Results depend entirely on your effort and consistency.</p>
+                        <p>Students who follow the system consistently typically see their first sale within 2–3 weeks.
+                            The 28-day system is designed to build toward a ₹1 lakh/month store. Results depend entirely
+                            on your effort and consistency.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -784,7 +795,8 @@
                         <span class="icon">+</span>
                     </button>
                     <div class="faq-answer">
-                        <p>Yes. You sell to international customers from wherever you are. All you need is a laptop and an internet connection.</p>
+                        <p>Yes. You sell to international customers from wherever you are. All you need is a laptop and
+                            an internet connection.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -793,7 +805,8 @@
                         <span class="icon">+</span>
                     </button>
                     <div class="faq-answer">
-                        <p>Around 2 hours a day once your store is set up. The initial build takes more time in the first two weeks, then AI automation handles most of the daily operations.</p>
+                        <p>Around 2 hours a day once your store is set up. The initial build takes more time in the
+                            first two weeks, then AI automation handles most of the daily operations.</p>
                     </div>
                 </div>
             </div>
@@ -806,13 +819,12 @@
             <div class="cta-content fade-up">
                 <div class="cta-line"></div>
                 <h2 class="huge-heading cta-heading">
-                    Your Freedom Is<br>
+                    Your Exit Is<br>
                     <span class="title-italic text-gold">One Decision Away.</span>
                 </h2>
-                <p class="closing-text">Every month you wait is another month of someone else's salary, someone else's schedule, someone else's ceiling.</p>
-                
+
                 <button class="btn btn-primary large">Get Instant Access &rarr;</button>
-                <div class="secure-text">One-time payment &middot; Instant delivery</div>
+            </div>
         </div>
     </section>
 
@@ -821,7 +833,7 @@
         <div class="container footer-inner">
             <div class="footer-brand text-gold">THE EXIT</div>
             <div class="footer-links-row">
-                <span>&copy; 2025 The Exit</span>
+                <span>&copy; 2026 The Exit</span>
                 <span class="sep">&middot;</span>
                 <a href="#">Privacy</a>
                 <span class="sep">&middot;</span>
@@ -831,11 +843,26 @@
             </div>
 
             <div class="footer-primary-disclaimer">
-                <strong>Disclaimer:</strong> The Exit is an educational program. Results shown are examples of what individual students have achieved and are not typical or guaranteed. Your results depend entirely on your effort, consistency, time invested, ad budget and market conditions. No specific income is promised or implied. Nothing on this site should be treated as financial advice. All testimonials are shared with the student's written consent. This site is not affiliated with Meta, Shopify, Google or any other platform mentioned.
+                <strong>Disclaimer:</strong> The Exit is an educational program. Results shown are examples of what
+                individual students have achieved and are not typical or guaranteed. Your results depend entirely on
+                your effort, consistency, time invested, ad budget and market conditions. No specific income is promised
+                or implied. Nothing on this site should be treated as financial advice. All testimonials are shared with
+                the student's written consent. This site is not affiliated with Meta, Shopify, Google or any other
+                platform mentioned.
             </div>
 
             <div class="global-legal-disclaimer">
-                The Exit is an educational program and does not guarantee any specific income or result. The ₹1 lakh/month figure represents an outcome some students have reported and is not typical, promised or guaranteed. Your results depend entirely on your own effort, consistency, time invested, advertising budget, product selection and prevailing market conditions. Building an online store requires financial investment in advertising, tools and platform subscriptions &mdash; costs vary by individual. Testimonials shown are real experiences shared with written consent and represent individual results, not averages. Nothing on this website constitutes financial, legal, tax or investment advice; please consult a qualified professional before making any financial decision. All purchases are for educational access only. The Exit is not affiliated with, endorsed by, or sponsored by Meta, Instagram, Facebook, Google, Shopify, or any other platform referenced on this site. All trademarks are the property of their respective owners. By using this website you agree to our Terms & Conditions and Privacy Policy.
+                The Exit is an educational program and does not guarantee any specific income or result. The ₹1
+                lakh/month figure represents an outcome some students have reported and is not typical, promised or
+                guaranteed. Your results depend entirely on your own effort, consistency, time invested, advertising
+                budget, product selection and prevailing market conditions. Building an online store requires financial
+                investment in advertising, tools and platform subscriptions &mdash; costs vary by individual.
+                Testimonials shown are real experiences shared with written consent and represent individual results,
+                not averages. Nothing on this website constitutes financial, legal, tax or investment advice; please
+                consult a qualified professional before making any financial decision. All purchases are for educational
+                access only. The Exit is not affiliated with, endorsed by, or sponsored by Meta, Instagram, Facebook,
+                Google, Shopify, or any other platform referenced on this site. All trademarks are the property of their
+                respective owners. By using this website you agree to our Terms & Conditions and Privacy Policy.
             </div>
         </div>
     </footer>
@@ -844,7 +871,8 @@
     <div class="sticky-cta">
         <div class="sticky-container">
             <div class="sticky-left">
-                <div style="font-weight: 600; font-size: 0.95rem;">Start building <span style="color: var(--accent-gold); font-weight: 700;">your exit</span> today</div>
+                <div style="font-weight: 600; font-size: 0.95rem;">Start building <span
+                        style="color: var(--accent-gold); font-weight: 700;">your exit</span> today</div>
             </div>
             <div class="sticky-right">
                 <button class="btn btn-primary cta-btn">GET ACCESS &rarr;</button>
@@ -871,8 +899,10 @@
             <button class="modal-close-btn">&times;</button>
 
             <div style="text-align: center; margin-bottom: 1.25rem;">
-                <div style="font-family: var(--font-serif); font-size: 1.35rem; font-weight: 800; color: var(--accent-gold); display: inline-flex; align-items: center; justify-content: center; gap: 10px;">
-                    <img src="exit%20logo%20new%20oneee.png" alt="The Exit Logo" style="height: 38px; width: auto; object-fit: contain;">
+                <div
+                    style="font-family: var(--font-serif); font-size: 1.35rem; font-weight: 800; color: var(--accent-gold); display: inline-flex; align-items: center; justify-content: center; gap: 10px;">
+                    <img src="exit%20logo%20new%20oneee.png" alt="The Exit Logo"
+                        style="height: 38px; width: auto; object-fit: contain;">
                     <span>The Exit</span>
                 </div>
             </div>
@@ -880,15 +910,18 @@
             <div class="progress-bar-container">
                 <div class="progress-bar-fill" id="progress-bar-fill"></div>
             </div>
-            <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+            <div
+                style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
                 <span id="progress-text">Step 1 of 3</span>
                 <span>Lock In Your Spot</span>
             </div>
 
             <!-- STEP 1 -->
             <div id="form-step-1">
-                <h3 style="font-size: 1.5rem; margin-bottom: 0.25rem;">Almost There.<br><span class="title-italic text-gold">Lock In Your Spot.</span></h3>
-                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem;">Enter your details and we'll take you straight to your access.</p>
+                <h3 style="font-size: 1.5rem; margin-bottom: 0.25rem;">Almost There.<br><span
+                        class="title-italic text-gold">Lock In Your Spot.</span></h3>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem;">Enter your details
+                    and we'll take you straight to your access.</p>
 
                 <div class="form-group">
                     <label class="form-label">Full Name</label>
@@ -910,8 +943,10 @@
 
             <!-- STEP 2 -->
             <div id="form-step-2" style="display: none;">
-                <h3 style="font-size: 1.5rem; margin-bottom: 0.25rem;">Quick Question.<br><span class="title-italic text-gold">Be Honest.</span></h3>
-                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem;">Helps us understand where you're starting from.</p>
+                <h3 style="font-size: 1.5rem; margin-bottom: 0.25rem;">Quick Question.<br><span
+                        class="title-italic text-gold">Be Honest.</span></h3>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem;">Helps us understand
+                    where you're starting from.</p>
 
                 <div class="form-group">
                     <label class="form-label">Your current situation</label>
@@ -925,7 +960,8 @@
                 </div>
 
                 <div class="ceiling-callout" id="ceiling-callout" style="display: none;">
-                    That ceiling is real. No matter how hard you work this month, that number doesn't change. This is what changes it.
+                    That ceiling is real. No matter how hard you work this month, that number doesn't change. This is
+                    what changes it.
                 </div>
 
                 <div class="modal-sticky-footer">
@@ -938,8 +974,10 @@
 
             <!-- STEP 3 -->
             <div id="form-step-3" style="display: none;">
-                <h3 style="font-size: 1.5rem; margin-bottom: 0.25rem;">One More.<br><span class="title-italic text-gold">Almost Done.</span></h3>
-                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem;">Honest answer only &mdash; this stays between us.</p>
+                <h3 style="font-size: 1.5rem; margin-bottom: 0.25rem;">One More.<br><span
+                        class="title-italic text-gold">Almost Done.</span></h3>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem;">Honest answer only
+                    &mdash; this stays between us.</p>
 
                 <div class="form-group">
                     <label class="form-label">Monthly income</label>
@@ -954,8 +992,10 @@
                 <div class="form-group">
                     <label class="form-label">Do you want out of the system?</label>
                     <div class="radio-options" id="intent-options">
-                        <div class="radio-option-card" data-val="Yes — as fast as possible">Yes &mdash; as fast as possible</div>
-                        <div class="radio-option-card" data-val="Yes — building a plan">Yes &mdash; building a plan</div>
+                        <div class="radio-option-card" data-val="Yes — as fast as possible">Yes &mdash; as fast as
+                            possible</div>
+                        <div class="radio-option-card" data-val="Yes — building a plan">Yes &mdash; building a plan
+                        </div>
                         <div class="radio-option-card" data-val="Still figuring it out">Still figuring it out</div>
                     </div>
                 </div>
@@ -967,7 +1007,8 @@
                 <div class="modal-sticky-footer">
                     <div class="modal-btn-row">
                         <button class="btn btn-outline" id="btn-step3-back" style="flex: 1;">&larr; Back</button>
-                        <button class="btn btn-primary" id="btn-step3-submit" style="flex: 2;">See What I Get &rarr;</button>
+                        <button class="btn btn-primary" id="btn-step3-submit" style="flex: 2;">See What I Get
+                            &rarr;</button>
                     </div>
                 </div>
             </div>
@@ -975,7 +1016,8 @@
             <!-- CONFIRMATION LOADING -->
             <div id="form-step-confirm" style="display: none; text-align: center; padding: 2rem 0;">
                 <div style="font-size: 3rem; color: #22c55e; margin-bottom: 1rem;">&#10004;</div>
-                <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem;">You're In.<br><span class="title-italic text-gold">Loading Your Access...</span></h3>
+                <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem;">You're In.<br><span
+                        class="title-italic text-gold">Loading Your Access...</span></h3>
                 <p style="color: var(--text-secondary);">Preparing your customized enrollment page...</p>
             </div>
         </div>
@@ -983,148 +1025,174 @@
 
     <!-- PAGE 3 — VALUE STACK / PRE-CHECKOUT MODAL -->
     <div id="value-stack-modal" class="modal-overlay">
-        <div class="modal-content wide" style="padding-top: 0;">
-            <button class="modal-close-btn">&times;</button>
+        <div class="modal-content wide value-stack-new-modal">
+            <button class="modal-close-btn" aria-label="Close modal">&times;</button>
 
-            <!-- Sticky Warning Bar -->
-            <div class="sticky-warning-bar">
-                Your spot is reserved &mdash; complete enrolment to confirm
+            <!-- Top Gold Reserved Banner -->
+            <div class="vs-reserved-banner">
+                YOUR SPOT IS RESERVED &mdash; COMPLETE ENROLMENT TO CONFIRM
             </div>
 
-            <div style="padding: 2rem 1rem 1rem; text-align: center;">
-                <div style="font-family: var(--font-serif); font-size: 1.3rem; font-weight: 800; color: var(--accent-gold); margin-bottom: 0.75rem; display: inline-flex; align-items: center; justify-content: center; gap: 10px;">
-                    <img src="exit%20logo%20new%20oneee.png" alt="The Exit Logo" style="height: 38px; width: auto; object-fit: contain;">
-                    <span>The Exit</span>
-                </div>
-                <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">Here's Everything<br><span class="title-italic text-gold">You're Getting.</span></h2>
-                <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 1.5rem; font-size: 0.95rem;">
-                    The complete system, the community, the tools, and direct access to me. Everything you need to build your exit.
-                </p>
-
-                <!-- Countdown Timer -->
-                <div style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px;">Current Batch Closes In</div>
-                <div class="countdown-timer-box">
-                    <div class="time-unit"><span class="time-val" id="timer-days">03</span><span class="time-lbl">Days</span></div>
-                    <div class="time-unit"><span class="time-val" id="timer-hours">12</span><span class="time-lbl">Hrs</span></div>
-                    <div class="time-unit"><span class="time-val" id="timer-mins">45</span><span class="time-lbl">Min</span></div>
-                    <div class="time-unit"><span class="time-val" id="timer-secs">30</span><span class="time-lbl">Sec</span></div>
+            <div class="vs-modal-body">
+                <!-- Header -->
+                <div class="vs-header">
+                    <div class="vs-brand-label">T H E &nbsp; E X I T</div>
+                    <h2 class="vs-title">
+                        Here's Everything<br>
+                        <span class="vs-title-italic">You're Getting.</span>
+                    </h2>
                 </div>
 
-                <!-- Seat Counter -->
-                <div class="seat-counter-banner">
-                    This Batch: <span class="seats-taken-val">74 / 100 enrolled &mdash; 26 left</span>
-                </div>
-
-                <!-- Value Stack Items -->
-                <div style="text-align: left;">
-                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem; font-weight: 700; text-transform: uppercase;">
-                        <span>The Exit &mdash; Full Access</span>
-                        <span>Everything Included</span>
-                    </div>
-
-                    <!-- Item 1 -->
-                    <div class="value-item-card">
-                        <div class="value-header">
-                            <div class="value-title">1. The 28-Day System</div>
-                            <div class="value-price">₹9,999 / Core</div>
+                <!-- Box 1: Countdown Timer -->
+                <div class="vs-card vs-timer-card">
+                    <div class="vs-card-subtitle">THIS WEEK'S BATCH CLOSES SUNDAY, 11:59 PM</div>
+                    <div class="vs-countdown-wrap">
+                        <div class="vs-time-col">
+                            <div class="vs-time-digit" id="timer-days">03</div>
+                            <span class="vs-time-label">DAYS</span>
                         </div>
-                        <div class="value-desc">Day-by-day system from zero to a running international store. Every step mapped, nothing left to guess.</div>
-                    </div>
-
-                    <!-- Item 2 (Highlight Flagship) -->
-                    <div class="value-item-card highlight">
-                        <div class="value-header">
-                            <div class="value-title">2. The Exit AI Agent <span class="flagship-badge">Flagship</span></div>
-                            <div class="value-price">₹12,000 / year value</div>
+                        <div class="vs-time-separator">:</div>
+                        <div class="vs-time-col">
+                            <div class="vs-time-digit" id="timer-hours">02</div>
+                            <span class="vs-time-label">HRS</span>
                         </div>
-                        <div class="value-desc">An AI agent trained on my entire ecom knowledge base, built by our team specifically for dropshipping questions. Ask it anything, 24/7 &mdash; product research, ad copy, supplier issues, scaling decisions. Like having me on call at 3am.</div>
-                    </div>
-
-                    <!-- Item 3 -->
-                    <div class="value-item-card">
-                        <div class="value-header">
-                            <div class="value-title">3. Private Telegram Community</div>
-                            <div class="value-price">₹11,988 / year value</div>
+                        <div class="vs-time-separator">:</div>
+                        <div class="vs-time-col">
+                            <div class="vs-time-digit" id="timer-mins">29</div>
+                            <span class="vs-time-label">MIN</span>
                         </div>
-                        <div class="value-desc">Winning products shared <span class="text-gold" style="font-weight:700;">before they go viral</span>. Daily AI + ecom updates. Direct access to students already making money.</div>
-                    </div>
-
-                    <!-- Item 4 -->
-                    <div class="value-item-card">
-                        <div class="value-header">
-                            <div class="value-title">4. Live Webinars & Teardowns</div>
-                            <div class="value-price">₹6,000 / value</div>
+                        <div class="vs-time-separator">:</div>
+                        <div class="vs-time-col">
+                            <div class="vs-time-digit" id="timer-secs">06</div>
+                            <span class="vs-time-label">SEC</span>
                         </div>
-                        <div class="value-desc">Regular live sessions where I break down real stores, real ads and real numbers &mdash; and answer questions in the room.</div>
                     </div>
+                    <div class="vs-timer-footnote">Miss it? The next batch opens Monday.</div>
+                </div>
 
-                    <!-- Item 5 -->
-                    <div class="value-item-card">
-                        <div class="value-header">
-                            <div class="value-title">5. Store Templates & Asset Pack</div>
-                            <div class="value-price">₹4,999 / value</div>
-                        </div>
-                        <div class="value-desc">Conversion-tested store template, ad creative templates, supplier scripts, product research sheets. Copy, paste, launch.</div>
+                <!-- Box 2: Batch Enrollment Progress -->
+                <div class="vs-card vs-batch-card">
+                    <div class="vs-batch-header">
+                        <span class="vs-batch-label">THIS BATCH</span>
+                        <span class="vs-batch-count seats-taken-val">74 / 100 enrolled &mdash; 26 left</span>
                     </div>
-
-                    <!-- Item 6 -->
-                    <div class="value-item-card">
-                        <div class="value-header">
-                            <div class="value-title">6. 1-on-1 Mentorship Eligibility</div>
-                            <div class="value-price">Unlocked / post-course</div>
-                        </div>
-                        <div class="value-desc">Complete the course and unlock the ability to book direct Google Meet sessions with me for store reviews and scaling strategy.</div>
+                    <div class="vs-batch-progress-track">
+                        <div class="vs-batch-progress-fill" id="vs-batch-progress-fill" style="width: 74%;"></div>
                     </div>
                 </div>
 
-                <!-- Savings Breakdown -->
-                <div class="savings-breakdown">
-                    <div class="savings-row strikethrough">
-                        <span>Total value if bought separately</span>
-                        <span>₹44,986</span>
+                <!-- Box 3: Value Stack Items Checklist Table -->
+                <div class="vs-card vs-checklist-card">
+                    <div class="vs-checklist-header">
+                        <span class="vs-cl-head-title">The Exit &mdash; Full Access</span>
+                        <span class="vs-cl-head-val">VALUE</span>
                     </div>
-                    <div class="savings-row green-save">
-                        <span>Your saving today</span>
-                        <span>₹34,987</span>
+
+                    <div class="vs-checklist-items">
+                        <!-- Item 1 -->
+                        <div class="vs-cl-row">
+                            <div class="vs-cl-left">
+                                <span class="vs-checkbox">&#10003;</span>
+                                <span class="vs-item-name">The 28-Day System</span>
+                            </div>
+                            <div class="vs-item-val">&#8377;9,999</div>
+                        </div>
+
+                        <!-- Item 2 (Flagship) -->
+                        <div class="vs-cl-row vs-cl-flagship">
+                            <div class="vs-cl-left">
+                                <span class="vs-checkbox">&#10003;</span>
+                                <span class="vs-item-name">The Exit Brain &mdash; AI Agent</span>
+                                <span class="vs-flagship-badge">FLAGSHIP</span>
+                            </div>
+                            <div class="vs-item-val">&#8377;12,000</div>
+                        </div>
+
+                        <!-- Item 3 -->
+                        <div class="vs-cl-row">
+                            <div class="vs-cl-left">
+                                <span class="vs-checkbox">&#10003;</span>
+                                <span class="vs-item-name">Private Telegram Community</span>
+                            </div>
+                            <div class="vs-item-val">&#8377;11,988</div>
+                        </div>
+
+                        <!-- Item 4 -->
+                        <div class="vs-cl-row">
+                            <div class="vs-cl-left">
+                                <span class="vs-checkbox">&#10003;</span>
+                                <span class="vs-item-name">Live Webinars &amp; Teardowns</span>
+                            </div>
+                            <div class="vs-item-val">&#8377;6,000</div>
+                        </div>
+
+                        <!-- Item 5 -->
+                        <div class="vs-cl-row">
+                            <div class="vs-cl-left">
+                                <span class="vs-checkbox">&#10003;</span>
+                                <span class="vs-item-name">Store Templates &amp; Asset Pack</span>
+                            </div>
+                            <div class="vs-item-val">&#8377;4,999</div>
+                        </div>
+
+                        <!-- Item 6 -->
+                        <div class="vs-cl-row">
+                            <div class="vs-cl-left">
+                                <span class="vs-checkbox">&#10003;</span>
+                                <span class="vs-item-name">1-on-1 Mentorship Eligibility</span>
+                            </div>
+                            <div class="vs-item-val vs-unlocked-text">Unlocked after course</div>
+                        </div>
                     </div>
-                    <div class="savings-row final-pay">
-                        <span>You pay today</span>
-                        <span>₹9,999</span>
+
+                    <!-- Total Value Row -->
+                    <div class="vs-checklist-footer">
+                        <span class="vs-total-label">Total value</span>
+                        <span class="vs-total-price">&#8377;44,986</span>
                     </div>
                 </div>
 
-                <!-- Price Block -->
-                <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; text-align: center; margin-bottom: 1.5rem;">
-                    <span style="background: rgba(34,197,94,0.15); color:#22c55e; font-size:0.75rem; font-weight:800; padding:0.25rem 0.75rem; border-radius:20px; text-transform:uppercase;">Current Batch Price</span>
-                    <div style="font-size: 3rem; font-weight: 800; font-family: var(--font-serif); margin: 0.5rem 0 0.25rem;">₹9,999</div>
-                    <div style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 0.75rem;">One-time payment &middot; Lifetime course access</div>
-                    <div style="font-size: 0.75rem; color: var(--accent-gold); font-weight: 600;">Price increases to ₹14,999 for the next batch</div>
-                    <div style="font-size: 0.7rem; color: var(--text-secondary); margin-top: 0.5rem;">Community subscription continues at ₹999/month after your first year.</div>
-                </div>
+                <!-- Box 4: Today's Price Highlight Card -->
+                <div class="vs-pricing-box">
+                    <div class="vs-pricing-eyebrow">TODAY'S PRICE</div>
+                    <h3 class="vs-pricing-heading">
+                        Your price is <span class="vs-title-italic">ready.</span>
+                    </h3>
 
-                <!-- Payment Methods & EMI -->
-                <div style="text-align: left; margin-bottom: 1.5rem;">
-                    <div style="font-weight: 700; font-size: 0.9rem; margin-bottom: 0.5rem;">Payment Methods</div>
-                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;">
-                        <span class="chip" style="font-size:0.75rem; padding:0.25rem 0.75rem;">UPI</span>
-                        <span class="chip" style="font-size:0.75rem; padding:0.25rem 0.75rem;">Any Card</span>
-                        <span class="chip" style="font-size:0.75rem; padding:0.25rem 0.75rem;">Net Banking</span>
-                        <span class="chip" style="font-size:0.75rem; padding:0.25rem 0.75rem;">International</span>
-                    </div>
-
-                    <div class="emi-box">
-                        <div class="emi-title">EMI Available &mdash; Pay in Easy Instalments</div>
-                        <div style="font-size: 0.85rem; color: var(--text-secondary);">Split across 3, 6 or 12 months on select cards. Start building today, pay as you earn.</div>
-                        <div style="font-size: 0.75rem; color: #22c55e; font-weight: 600; margin-top: 0.25rem;">Selectable at checkout.</div>
-                    </div>
-                </div>
-
-                <!-- Final Checkout Button -->
-                <div class="modal-sticky-footer value-stack-footer">
-                    <button class="btn btn-primary large checkout-final-link" id="final-checkout-link" style="width: 100%; font-size: 1.05rem; padding: 1.1rem;">
-                        Continue to Secure Checkout &rarr;
+                    <button type="button" class="btn vs-cta-btn checkout-final-link" id="final-checkout-link">
+                        CHECK THE PRICING &rarr;
                     </button>
-                    <div style="font-size: 0.78rem; color: var(--text-secondary); margin-top: 0.45rem; text-align: center;">You'll be taken to our secure payment page to complete enrolment.</div>
+
+                    <div class="vs-payment-features">
+                        <div class="vs-pay-card vs-card-onetime">
+                            <div class="vs-pay-title">One-time payment</div>
+                            <div class="vs-pay-desc">Pay once, instant access</div>
+                        </div>
+                        <div class="vs-pay-card vs-card-emi">
+                            <div class="vs-pay-title emi-title-green">EMI available</div>
+                            <div class="vs-pay-desc">Pay in easy instalments</div>
+                        </div>
+                    </div>
+
+                    <div class="vs-payment-gateways">
+                        UPI &middot; Cards &middot; Net Banking &middot; International
+                    </div>
+                </div>
+
+                <!-- Box 5: Disclaimer -->
+                <div class="vs-disclaimer">
+                    <p>
+                        <strong>Disclaimer:</strong> The Exit is an educational program. All revenue figures,
+                        screenshots, dashboards and testimonials shown on this site are illustrative, self-reported by
+                        others, or based on select examples from our network. They are not typical, not guaranteed, and
+                        not a promise of what you will achieve. Most people do not achieve high earnings, and you may
+                        lose money or time. Your results depend entirely on your own effort, skill, execution, market
+                        conditions, timing and competition. Value figures reflect the standalone price of each
+                        component. <strong>All sales are final. No refunds, cancellations or chargebacks will be issued
+                            under any circumstances once access to the program has been granted, as the material is
+                            delivered digitally and in full immediately upon payment.</strong> Nothing here constitutes
+                        financial, business or investment advice.
+                    </p>
                 </div>
             </div>
         </div>
@@ -1172,7 +1240,8 @@
 
                 <div class="form-group">
                     <label class="form-label">Write your review *</label>
-                    <textarea id="review-headline" class="form-input review-textarea" placeholder="Write your review here..." rows="3" required></textarea>
+                    <textarea id="review-headline" class="form-input review-textarea"
+                        placeholder="Write your review here..." rows="3" required></textarea>
                 </div>
 
                 <div class="form-group">
@@ -1180,23 +1249,27 @@
                     <div class="file-upload-box" id="file-upload-box">
                         <input type="file" id="review-image-input" accept="image/*" class="file-input-hidden">
                         <div class="upload-prompt" id="upload-prompt">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                                <circle cx="8.5" cy="8.5" r="1.5"/>
-                                <polyline points="21 15 16 10 5 21"/>
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                <circle cx="8.5" cy="8.5" r="1.5" />
+                                <polyline points="21 15 16 10 5 21" />
                             </svg>
                             <span>Click to choose screenshot from device</span>
                         </div>
                         <div class="image-preview-wrapper" id="image-preview-wrapper" style="display: none;">
                             <img id="review-preview-img" src="" alt="Proof Preview">
-                            <button type="button" class="btn-remove-preview" id="btn-remove-preview" title="Remove image">&times;</button>
+                            <button type="button" class="btn-remove-preview" id="btn-remove-preview"
+                                title="Remove image">&times;</button>
                         </div>
                     </div>
                 </div>
 
                 <div class="modal-sticky-footer">
-                    <div class="form-error" id="review-form-error" style="display: none;">Please provide your name and write your review.</div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1.15rem; font-weight: 700;">
+                    <div class="form-error" id="review-form-error" style="display: none;">Please provide your name and
+                        write your review.</div>
+                    <button type="submit" class="btn btn-primary"
+                        style="width: 100%; padding: 1.15rem; font-weight: 700;">
                         Post Review &rarr;
                     </button>
                 </div>
@@ -1205,8 +1278,10 @@
             <div id="review-form-success" class="review-success-box" style="display: none;">
                 <div class="review-success-icon">✓</div>
                 <h4 style="font-size: 1.4rem; color: #ffffff; margin-bottom: 0.35rem;">Review Published!</h4>
-                <p style="color: var(--text-secondary); font-size: 0.9rem;">Thank you! Your verified review has been posted and added to the Student Results stack.</p>
-                <button type="button" class="btn btn-outline" id="btn-review-done" style="margin-top: 1.25rem;">Close & View Reviews</button>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">Thank you! Your verified review has been
+                    posted and added to the Student Results stack.</p>
+                <button type="button" class="btn btn-outline" id="btn-review-done" style="margin-top: 1.25rem;">Close &
+                    View Reviews</button>
             </div>
         </div>
     </div>
@@ -1223,4 +1298,5 @@
     <script src="particles.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
