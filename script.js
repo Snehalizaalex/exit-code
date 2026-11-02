@@ -232,33 +232,29 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Speed & Timeline Management:
-        // As requested:
-        // "as this is a 4 min video the starting 2 min should go faster and the last 2 min should go slowly as the original video"
-        // Starting 2 minutes (0:00 to 2:00): Plays faster (1.75x speed)
-        // Last 2 minutes (2:00 to 4:00): Plays at original speed (1.0x normal speed)
-        video.preservesPitch = true;
-        if ('webkitPreservesPitch' in video) video.webkitPreservesPitch = true;
-        if ('mozPreservesPitch' in video) video.mozPreservesPitch = true;
+        // Video Speed & Progress Bar Management:
+        // 1. Video plays at normal original speed (1.0x) throughout
+        // 2. The progress bar & cursor moves speedily to 90% in the first 2 minutes (120s),
+        //    and after 90% it moves slowly over the remaining 2 minutes.
+        video.playbackRate = 1.0;
 
-        function updateSpeedAndTimeline() {
+        function updateTimelineProgress() {
             const currentTime = video.currentTime;
             const duration = video.duration || 240; // Total video is ~240s (4 mins)
-            const splitPoint = 120; // 2 minutes marker
+            const splitTime = 120; // 2 minutes marker
 
-            // Adjust playback rate dynamically
-            if (currentTime < splitPoint) {
-                if (video.playbackRate !== 1.75) {
-                    video.playbackRate = 1.75;
-                }
+            let percent = 0;
+            if (currentTime <= splitTime) {
+                // First 2 minutes: progress bar moves speedily from 0% to 90%
+                percent = (currentTime / splitTime) * 90;
             } else {
-                if (video.playbackRate !== 1.0) {
-                    video.playbackRate = 1.0;
-                }
+                // After 90%: progress bar moves slowly from 90% to 100% across the remaining duration
+                const remainingTime = Math.max(0.1, duration - splitTime);
+                const elapsedSinceSplit = currentTime - splitTime;
+                percent = 90 + (elapsedSinceSplit / remainingTime) * 10;
             }
 
-            // Timeline cursor follows smoothly to the end of the 4-minute video
-            const percent = Math.min(100, Math.max(0, (currentTime / duration) * 100));
+            percent = Math.min(100, Math.max(0, percent));
 
             if (timelineFill) {
                 timelineFill.style.width = percent + '%';
@@ -268,12 +264,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        video.addEventListener('timeupdate', updateSpeedAndTimeline);
+        video.addEventListener('timeupdate', updateTimelineProgress);
         video.addEventListener('play', () => {
-            video.preservesPitch = true;
-            if (video.currentTime < 120) {
-                video.playbackRate = 1.75;
-            } else {
+            video.playbackRate = 1.0;
+        });
+        video.addEventListener('ratechange', () => {
+            if (video.playbackRate !== 1.0) {
                 video.playbackRate = 1.0;
             }
         });
