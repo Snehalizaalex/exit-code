@@ -2078,6 +2078,367 @@ a {
     display: none;
 }
 
+/* Consent Checkbox Box (Compulsory) */
+.consent-checkbox-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 16px;
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+    text-align: left;
+    width: 100%;
+}
+
+.consent-checkbox-card:hover {
+    border-color: rgba(206, 161, 89, 0.45);
+    background-color: rgba(206, 161, 89, 0.03);
+}
+
+.consent-checkbox-card.has-error {
+    border-color: #ef4444 !important;
+    background-color: rgba(239, 68, 68, 0.06) !important;
+}
+
+.consent-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+    border: 1.5px solid rgba(255, 255, 255, 0.4);
+    border-radius: 4px;
+    background-color: #0b0b0d;
+    cursor: pointer;
+    margin: 2px 0 0 0;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+.consent-checkbox:hover {
+    border-color: var(--accent-gold);
+}
+
+.consent-checkbox:checked {
+    background: linear-gradient(135deg, #d4af37 0%, #f9d976 100%);
+    border-color: #d4af37;
+}
+
+.consent-checkbox:checked::after {
+    content: '';
+    display: block;
+    width: 5px;
+    height: 10px;
+    border: solid #000;
+    border-width: 0 2.5px 2.5px 0;
+    transform: rotate(45deg);
+    margin-top: -2px;
+}
+
+.consent-checkbox:focus-visible {
+    outline: 2px solid var(--accent-gold);
+    outline-offset: 2px;
+}
+
+.consent-text {
+    font-size: 0.85rem;
+    line-height: 1.45;
+    color: #b0b0b8;
+    user-select: none;
+}
+
+.consent-text strong {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.form-legal-notice {
+    font-size: 0.78rem;
+    line-height: 1.45;
+    color: #7b7b85;
+    margin: 0.75rem 0 1.25rem 0;
+    text-align: left;
+}
+
+.form-legal-notice a {
+    color: #b0b0ba;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+}
+
+.form-legal-notice a:hover {
+    color: var(--accent-gold);
+}
+
+/* ==========================================================================
+   Custom VSL Video Player (No Skip/Rewind, Play/Pause Only, 2-Stage Timeline)
+   ========================================================================== */
+.custom-vsl-player {
+    position: relative;
+    background-color: #050505;
+    border: 1px solid rgba(206, 161, 89, 0.3);
+    border-radius: 14px;
+    overflow: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.custom-vsl-player video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+    background: #000;
+}
+
+/* Initial Cover Overlay */
+.custom-vsl-player .video-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(15, 12, 5, 0.72) 0%, rgba(0, 0, 0, 0.94) 80%);
+    cursor: pointer;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.custom-vsl-player.is-playing .video-overlay {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.custom-vsl-player .play-btn {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
+    color: #000;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.45);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.custom-vsl-player .play-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 35px rgba(212, 175, 55, 0.7);
+}
+
+.custom-vsl-player .video-caption {
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+/* Center Play/Pause Ripple Indicator */
+.vsl-center-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.7);
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(212, 175, 55, 0.6);
+    color: var(--accent-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 8;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+}
+
+.vsl-center-indicator.animate {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.vsl-center-indicator svg {
+    width: 30px;
+    height: 30px;
+}
+
+.vsl-center-indicator .icon-play,
+.vsl-center-indicator .icon-pause {
+    display: none;
+}
+.vsl-center-indicator.showing-play .icon-play {
+    display: block;
+    margin-left: 3px;
+}
+.vsl-center-indicator.showing-pause .icon-pause {
+    display: block;
+}
+
+/* Bottom Controls Bar */
+.vsl-controls-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 12;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 18px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.55) 70%, transparent 100%);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+    opacity: 0;
+    transform: translateY(6px);
+    pointer-events: none;
+}
+
+.custom-vsl-player:hover .vsl-controls-bar,
+.custom-vsl-player.show-controls .vsl-controls-bar,
+.custom-vsl-player.is-paused .vsl-controls-bar {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Control Buttons (Play/Pause, Mute, Fullscreen) */
+.vsl-control-btn {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    transition: color 0.2s ease, transform 0.15s ease, background-color 0.2s ease;
+    padding: 0;
+}
+
+.vsl-control-btn:hover {
+    color: var(--accent-gold);
+    background: rgba(255, 255, 255, 0.08);
+    transform: scale(1.08);
+}
+
+.vsl-control-btn svg {
+    width: 22px;
+    height: 22px;
+}
+
+/* Play/Pause state toggling */
+.vsl-control-btn .icon-play {
+    display: block;
+}
+.vsl-control-btn .icon-pause {
+    display: none;
+}
+.custom-vsl-player.is-playing .vsl-control-btn#vsl-play-toggle-btn .icon-play {
+    display: none;
+}
+.custom-vsl-player.is-playing .vsl-control-btn#vsl-play-toggle-btn .icon-pause {
+    display: block;
+}
+
+/* Mute state toggling */
+.vsl-control-btn .icon-volume-high {
+    display: block;
+}
+.vsl-control-btn .icon-volume-muted {
+    display: none;
+}
+.custom-vsl-player.is-muted .vsl-control-btn#vsl-mute-toggle-btn .icon-volume-high {
+    display: none;
+}
+.custom-vsl-player.is-muted .vsl-control-btn#vsl-mute-toggle-btn .icon-volume-muted {
+    display: block;
+}
+
+/* Timeline Track & Cursor (Non-scrubbable) */
+.vsl-timeline-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    height: 24px;
+    cursor: default;
+    user-select: none;
+}
+
+.vsl-timeline-track {
+    position: relative;
+    width: 100%;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.22);
+    border-radius: 999px;
+    transition: height 0.2s ease;
+}
+
+.custom-vsl-player:hover .vsl-timeline-track {
+    height: 6px;
+}
+
+.vsl-timeline-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #d4af37 0%, #f9d976 100%);
+    border-radius: 999px;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+    pointer-events: none;
+}
+
+.vsl-timeline-cursor {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    width: 13px;
+    height: 13px;
+    background: #ffffff;
+    border: 2.5px solid var(--accent-gold);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.8), 0 2px 5px rgba(0,0,0,0.5);
+    pointer-events: none;
+    transition: transform 0.15s ease;
+}
+
+.custom-vsl-player:hover .vsl-timeline-cursor {
+    transform: translate(-50%, -50%) scale(1.15);
+}
+
+.vsl-right-controls {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
 /* ==========================================================================
    Page 3 Value Stack / Checkout New Design
    ========================================================================== */

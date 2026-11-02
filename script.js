@@ -87,38 +87,195 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 3000);
     }
 
-    // 4. Video Player & Progress Animation
-    const playBtn = document.getElementById('play-vsl-btn');
-    const videoContainer = document.getElementById('video-container-box');
-    if (playBtn && videoContainer) {
-        playBtn.addEventListener('click', () => {
-            videoContainer.innerHTML = `
-                <div style="width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; background:#000;">
-                    <div style="width:80%; height:4px; background:rgba(255,255,255,0.1); border-radius:2px; overflow:hidden; margin-bottom:1rem;">
-                        <div id="vsl-progress" style="width:0%; height:100%; background:var(--accent-gold); transition: width 3.2s cubic-bezier(0.1, 0.7, 0.1, 1);"></div>
-                    </div>
-                    <p style="color:var(--text-secondary); font-size:0.85rem; letter-spacing:1px; text-transform:uppercase;">LOADING VIDEO ACCESS...</p>
-                </div>
-            `;
-            setTimeout(() => {
-                const prog = document.getElementById('vsl-progress');
-                if (prog) prog.style.width = '100%';
-            }, 50);
+    // 4. Custom VSL Video Player (Dropshippingwebsitevideoupdated.mp4)
+    const video = document.getElementById('vsl-video');
+    const playerContainer = document.getElementById('video-container-box');
+    const overlay = document.getElementById('play-vsl-btn');
+    const playToggleBtn = document.getElementById('vsl-play-toggle-btn');
+    const muteToggleBtn = document.getElementById('vsl-mute-toggle-btn');
+    const fullscreenBtn = document.getElementById('vsl-fullscreen-btn');
+    const timelineFill = document.getElementById('vsl-timeline-fill');
+    const timelineCursor = document.getElementById('vsl-timeline-cursor');
+    const centerIndicator = document.getElementById('vsl-center-indicator');
 
-            setTimeout(() => {
-                if (YOUR_VIDEO_EMBED_URL && YOUR_VIDEO_EMBED_URL !== 'YOUR_VIDEO_EMBED_URL') {
-                    videoContainer.innerHTML = `<iframe src="${YOUR_VIDEO_EMBED_URL}" style="width:100%; height:100%; border:none;" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
-                } else {
-                    videoContainer.innerHTML = `
-                        <div style="width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; background:#050505; color:var(--accent-gold); padding:2rem; text-align:center;">
-                            <h3 style="font-size:1.5rem; margin-bottom:0.5rem; font-family:var(--font-serif);">THE EXIT — 28 DAYS BLUEPRINT</h3>
-                            <p style="color:var(--text-secondary); max-width:500px;">Video is streaming live. Click below to lock in your spot before seats close.</p>
-                            <button class="btn btn-primary trigger-lead-modal" style="margin-top:1.5rem;">GET INSTANT ACCESS &rarr;</button>
-                        </div>
-                    `;
-                    bindModalTriggers();
+    if (video && playerContainer) {
+        let controlsTimeout = null;
+
+        function showControlsTemporarily() {
+            playerContainer.classList.add('show-controls');
+            if (controlsTimeout) clearTimeout(controlsTimeout);
+            controlsTimeout = setTimeout(() => {
+                if (!video.paused) {
+                    playerContainer.classList.remove('show-controls');
                 }
-            }, 3300);
+            }, 2500);
+        }
+
+        function triggerCenterFlash(isPlay) {
+            if (!centerIndicator) return;
+            centerIndicator.classList.remove('showing-play', 'showing-pause', 'animate');
+            void centerIndicator.offsetWidth; // trigger reflow
+            centerIndicator.classList.add(isPlay ? 'showing-play' : 'showing-pause', 'animate');
+            setTimeout(() => {
+                centerIndicator.classList.remove('animate');
+            }, 500);
+        }
+
+        function togglePlay() {
+            if (video.paused || video.ended) {
+                video.play().then(() => {
+                    playerContainer.classList.add('is-playing');
+                    playerContainer.classList.remove('is-paused');
+                    triggerCenterFlash(true);
+                    showControlsTemporarily();
+                }).catch(() => {
+                    // Fallback if autoplay policy needs muted
+                    video.muted = true;
+                    playerContainer.classList.add('is-muted');
+                    video.play().then(() => {
+                        playerContainer.classList.add('is-playing');
+                        playerContainer.classList.remove('is-paused');
+                        triggerCenterFlash(true);
+                    }).catch(() => {});
+                });
+            } else {
+                video.pause();
+                playerContainer.classList.remove('is-playing');
+                playerContainer.classList.add('is-paused');
+                triggerCenterFlash(false);
+                playerContainer.classList.add('show-controls');
+            }
+        }
+
+        // Overlay click (Watch This First initial screen)
+        if (overlay) {
+            overlay.addEventListener('click', (e) => {
+                e.stopPropagation();
+                togglePlay();
+            });
+        }
+
+        // Direct click on video to toggle play/pause
+        video.addEventListener('click', () => {
+            togglePlay();
+        });
+
+        // Bottom play/pause toggle button ONLY (No skip, no forward/backward)
+        if (playToggleBtn) {
+            playToggleBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                togglePlay();
+            });
+        }
+
+        // User activity reveals controls
+        playerContainer.addEventListener('mousemove', showControlsTemporarily);
+        playerContainer.addEventListener('touchstart', showControlsTemporarily, { passive: true });
+
+        video.addEventListener('play', () => {
+            playerContainer.classList.add('is-playing');
+            playerContainer.classList.remove('is-paused');
+        });
+
+        video.addEventListener('pause', () => {
+            playerContainer.classList.remove('is-playing');
+            playerContainer.classList.add('is-paused');
+        });
+
+        video.addEventListener('ended', () => {
+            playerContainer.classList.remove('is-playing');
+            playerContainer.classList.add('is-paused');
+            if (timelineFill) timelineFill.style.width = '100%';
+            if (timelineCursor) timelineCursor.style.left = '100%';
+        });
+
+        // Prevent keyboard seeking (Left/Right arrow keys) so viewers cannot skip
+        window.addEventListener('keydown', (e) => {
+            if (document.activeElement === video || playerContainer.contains(document.activeElement)) {
+                if (e.key === 'ArrowLeft' || e.key === 'ArrowRight' || e.key === 'j' || e.key === 'l') {
+                    e.preventDefault();
+                } else if (e.key === ' ' || e.key === 'k') {
+                    e.preventDefault();
+                    togglePlay();
+                }
+            }
+        });
+
+        // Mute / Unmute
+        if (muteToggleBtn) {
+            muteToggleBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                video.muted = !video.muted;
+                if (video.muted) {
+                    playerContainer.classList.add('is-muted');
+                } else {
+                    playerContainer.classList.remove('is-muted');
+                }
+            });
+        }
+
+        // Fullscreen
+        if (fullscreenBtn) {
+            fullscreenBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (!document.fullscreenElement) {
+                    if (playerContainer.requestFullscreen) {
+                        playerContainer.requestFullscreen();
+                    } else if (video.webkitEnterFullscreen) {
+                        video.webkitEnterFullscreen();
+                    }
+                } else {
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen();
+                    }
+                }
+            });
+        }
+
+        // Speed & Timeline Management:
+        // As requested:
+        // "as this is a 4 min video the starting 2 min should go faster and the last 2 min should go slowly as the original video"
+        // Starting 2 minutes (0:00 to 2:00): Plays faster (1.75x speed)
+        // Last 2 minutes (2:00 to 4:00): Plays at original speed (1.0x normal speed)
+        video.preservesPitch = true;
+        if ('webkitPreservesPitch' in video) video.webkitPreservesPitch = true;
+        if ('mozPreservesPitch' in video) video.mozPreservesPitch = true;
+
+        function updateSpeedAndTimeline() {
+            const currentTime = video.currentTime;
+            const duration = video.duration || 240; // Total video is ~240s (4 mins)
+            const splitPoint = 120; // 2 minutes marker
+
+            // Adjust playback rate dynamically
+            if (currentTime < splitPoint) {
+                if (video.playbackRate !== 1.75) {
+                    video.playbackRate = 1.75;
+                }
+            } else {
+                if (video.playbackRate !== 1.0) {
+                    video.playbackRate = 1.0;
+                }
+            }
+
+            // Timeline cursor follows smoothly to the end of the 4-minute video
+            const percent = Math.min(100, Math.max(0, (currentTime / duration) * 100));
+
+            if (timelineFill) {
+                timelineFill.style.width = percent + '%';
+            }
+            if (timelineCursor) {
+                timelineCursor.style.left = percent + '%';
+            }
+        }
+
+        video.addEventListener('timeupdate', updateSpeedAndTimeline);
+        video.addEventListener('play', () => {
+            video.preservesPitch = true;
+            if (video.currentTime < 120) {
+                video.playbackRate = 1.75;
+            } else {
+                video.playbackRate = 1.0;
+            }
         });
     }
 
@@ -463,7 +620,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Multi-Step Form Logic (Page 2)
     let currentStep = 1;
     let leadData = {
-        name: '', whatsapp: '', email: '',
+        name: '', whatsapp: '', email: '', consent: false,
         situation: '', income: '', intent: ''
     };
 
@@ -476,22 +633,55 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Step 1 -> 2
     const btnStep1Next = document.getElementById('btn-step1-next');
+    const leadConsent = document.getElementById('lead-consent');
+    const consentCard = document.getElementById('consent-checkbox-card');
+
+    if (leadConsent && consentCard) {
+        leadConsent.addEventListener('change', () => {
+            if (leadConsent.checked) {
+                consentCard.classList.remove('has-error');
+                const err = document.getElementById('step1-error');
+                if (err && err.textContent.includes('agree')) {
+                    err.style.display = 'none';
+                }
+            }
+        });
+    }
+
     if (btnStep1Next) {
         btnStep1Next.addEventListener('click', () => {
             const name = document.getElementById('lead-name').value.trim();
             const phone = document.getElementById('lead-phone').value.trim();
             const email = document.getElementById('lead-email').value.trim();
+            const consentChecked = leadConsent ? leadConsent.checked : false;
             const err = document.getElementById('step1-error');
 
             if (!name || !phone || !email) {
-                if (err) err.style.display = 'block';
+                if (err) {
+                    err.textContent = 'Please fill in all fields to continue.';
+                    err.style.display = 'block';
+                }
                 return;
             }
+
+            if (!consentChecked) {
+                if (err) {
+                    err.textContent = 'Please agree to the communications terms to continue.';
+                    err.style.display = 'block';
+                }
+                if (consentCard) {
+                    consentCard.classList.add('has-error');
+                }
+                return;
+            }
+
+            if (consentCard) consentCard.classList.remove('has-error');
             if (err) err.style.display = 'none';
 
             leadData.name = name;
             leadData.whatsapp = phone;
             leadData.email = email;
+            leadData.consent = true;
 
             currentStep = 2;
             if (leadModal) leadModal.scrollTop = 0;
