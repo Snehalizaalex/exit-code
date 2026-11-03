@@ -5,8 +5,8 @@ const SEATS_TAKEN = 74;
 const SEATS_LEFT = SEATS_TOTAL - SEATS_TAKEN; // 26
 
 const YOUR_VIDEO_EMBED_URL = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1";
-const YOUR_CHECKOUT_LINK = "https://checkout.theexit.in/";
-const YOUR_WEBHOOK = "https://api.theexit.in/v1/lead-webhook";
+const YOUR_CHECKOUT_LINK = "https://saisajeev.graphy.com/s/store";
+const YOUR_WEBHOOK = "https://script.google.com/macros/s/AKfycbzsir9Zm-3Fn3ZstHSwVmF2ZRlfxUtnSqQqT9hxlr99f757pW--qWCfakeSWlVXL6dN/exec";
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Fade Up Observer
     const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         playerContainer.classList.add('is-playing');
                         playerContainer.classList.remove('is-paused');
                         triggerCenterFlash(true);
-                    }).catch(() => {});
+                    }).catch(() => { });
                 });
             } else {
                 video.pause();
@@ -779,14 +779,64 @@ document.addEventListener('DOMContentLoaded', () => {
             if (progressFill) progressFill.style.width = '100%';
             if (progressText) progressText.textContent = 'Complete';
 
-            // Send webhook data silently
+            // Send lead data to Google Sheet webhook
             try {
-                fetch(YOUR_WEBHOOK, {
+                const now = new Date();
+                const payload = {
+                    // Exact Sheet Columns
+                    'Full Name': leadData.name || '',
+                    'WhatsApp Number': leadData.whatsapp || '',
+                    'Email': leadData.email || '',
+                    'Marketing Consent': leadData.consent ? 'Yes' : 'No',
+                    'Current Situation (Step 2)': leadData.situation || '',
+                    'Monthly Income (Step 3)': leadData.income || '',
+                    'Exit Goal (Step 3)': leadData.intent || '',
+                    'Registration Date & Time': now.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
+
+                    // Fallback Aliases
+                    name: leadData.name || '',
+                    fullName: leadData.name || '',
+                    whatsapp: leadData.whatsapp || '',
+                    phone: leadData.whatsapp || '',
+                    whatsappNumber: leadData.whatsapp || '',
+                    email: leadData.email || '',
+                    emailAddress: leadData.email || '',
+                    'Email Address': leadData.email || '',
+                    situation: leadData.situation || '',
+                    currentSituation: leadData.situation || '',
+                    'Current Situation': leadData.situation || '',
+                    income: leadData.income || '',
+                    monthlyIncome: leadData.income || '',
+                    'Monthly Income': leadData.income || '',
+                    intent: leadData.intent || '',
+                    'Intent': leadData.intent || '',
+                    exitGoal: leadData.intent || '',
+                    consent: leadData.consent ? 'Yes' : 'No',
+                    timestamp: now.toISOString(),
+                    'Timestamp': now.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
+                    date: now.toLocaleDateString('en-IN'),
+                    'Date': now.toLocaleDateString('en-IN'),
+                    source: 'The Exit - Get Access Form'
+                };
+
+                // Append query params so Apps Script e.parameter captures every field
+                const queryParams = new URLSearchParams();
+                Object.keys(payload).forEach(key => queryParams.append(key, payload[key]));
+                const submitUrl = `${YOUR_WEBHOOK}${YOUR_WEBHOOK.includes('?') ? '&' : '?'}${queryParams.toString()}`;
+
+                // Use mode: 'no-cors' with text/plain to prevent browser CORS preflight blockage
+                fetch(submitUrl, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(leadData)
-                }).catch(() => {});
-            } catch (e) {}
+                    mode: 'no-cors',
+                    cache: 'no-cache',
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    body: JSON.stringify(payload)
+                }).catch(err => {
+                    console.warn('Google Sheet submission notice:', err);
+                });
+            } catch (e) {
+                console.warn('Google Sheet dispatch error:', e);
+            }
 
             // Auto advance after 2.2 seconds to Page 3 Value Stack Modal
             setTimeout(() => {
@@ -830,8 +880,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const finalCheckoutBtn = document.getElementById('final-checkout-link');
     if (finalCheckoutBtn) {
         finalCheckoutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
             if (YOUR_CHECKOUT_LINK && YOUR_CHECKOUT_LINK !== '#checkout') {
-                window.location.href = YOUR_CHECKOUT_LINK;
+                // Immediate visual feedback to prevent multiple clicks
+                finalCheckoutBtn.disabled = true;
+                finalCheckoutBtn.style.opacity = '0.85';
+                finalCheckoutBtn.style.cursor = 'wait';
+                finalCheckoutBtn.innerHTML = 'Redirecting to checkout &rarr;';
+
+                // Professional pass-through: attach lead info & UTM tags to Graphy store
+                try {
+                    const checkoutUrl = new URL(YOUR_CHECKOUT_LINK);
+                    if (leadData.email) checkoutUrl.searchParams.set('email', leadData.email);
+                    if (leadData.name) checkoutUrl.searchParams.set('name', leadData.name);
+                    if (leadData.whatsapp) checkoutUrl.searchParams.set('phone', leadData.whatsapp);
+                    checkoutUrl.searchParams.set('utm_source', 'theexit_website');
+                    checkoutUrl.searchParams.set('utm_medium', 'value_stack_modal');
+                    window.location.href = checkoutUrl.toString();
+                } catch (err) {
+                    window.location.href = YOUR_CHECKOUT_LINK;
+                }
             } else {
                 alert("Redirecting to secure checkout page...");
             }
@@ -843,7 +911,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const starPicker = document.getElementById('star-rating-select');
     const ratingFeedback = document.getElementById('rating-text-feedback');
     const stars = starPicker ? starPicker.querySelectorAll('.star-pick') : [];
-    
+
     const ratingTexts = {
         1: "1.0 / 5.0 — Poor Experience",
         2: "2.0 / 5.0 — Fair",
