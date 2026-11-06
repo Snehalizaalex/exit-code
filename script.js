@@ -5,7 +5,7 @@ const SEATS_TAKEN = 74;
 const SEATS_LEFT = SEATS_TOTAL - SEATS_TAKEN; // 26
 
 const YOUR_VIDEO_EMBED_URL = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1";
-const YOUR_CHECKOUT_LINK = "https://saisajeev.graphy.com/s/store";
+const YOUR_CHECKOUT_LINK = "https://mentorship.theexit.vip/courses/AI-Dropshipping-2027-6a8636fb6890e10f1c59e126";
 const YOUR_WEBHOOK = "https://script.google.com/macros/s/AKfycbzsir9Zm-3Fn3ZstHSwVmF2ZRlfxUtnSqQqT9hxlr99f757pW--qWCfakeSWlVXL6dN/exec";
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Fade Up Observer
